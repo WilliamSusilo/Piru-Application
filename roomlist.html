@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="x-icon" href="assets/Logo/Logo-3-RB.PNG" />
+
+    <title>Piru Application</title>
+    <!-- Symbol -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Box Icon -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <html>
+    <body>
+      <div class="cover-roomlist">
+        <div class="container-roomlist">
+          <!-- Header -->
+          <header class="roomlist">
+            <h1>Room Borrowing List</h1>
+            <p>Your room borrowing history is always stored in the app</p>
+          </header>
+
+          <!-- Filters for Determining The Output -->
+          <div class="filters">
+            <div class="selected-time">
+              <div class="selected-month">
+                <label for="month">Month</label>
+                <select id="month" name="month">
+                  <option value="january">January</option>
+                  <option value="february">February</option>
+                  <option value="march">March</option>
+                  <option value="april">April</option>
+                  <option value="may">May</option>
+                  <option value="june">June</option>
+                  <option value="july">July</option>
+                  <option value="august">August</option>
+                  <option value="september">September</option>
+                  <option value="october">October</option>
+                  <option value="november">November</option>
+                  <option value="december">December</option>
+                </select>
+              </div>
+              <div class="selected-year">
+                <label for="year">Year</label>
+                <select id="year" name="year">
+                  <option value="2024">2024</option>
+                  <option value="2024">2025</option>
+                  <option value="2024">2026</option>
+                  <option value="2024">2027</option>
+                  <option value="2024">2028</option>
+                  <option value="2024">2029</option>
+                  <option value="2024">2030</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="show-roomlist-btn" id="show-roomlist-btn">Show</button>
+          </div>
+
+          <!-- New Section -->
+          <div class="lists">
+            <div class="list new">
+              <h2>New</h2>
+              <div class="item">
+                <div class="roomlist-item" id="item-container-1">
+                  <p>D.4</p>
+                  <p>18/05/2024</p>
+                </div>
+                <button id="cancel" class="cancel">Cancel</button>
+              </div>
+
+              <div class="item">
+                <div class="roomlist-item" id="item-container">
+                  <p>D.4</p>
+                  <p>25/05/2024</p>
+                </div>
+                <button id="cancel" class="cancel">Cancel</button>
+              </div>
+            </div>
+
+            <!-- Ongoing Section -->
+            <div class="list ongoing">
+              <h2>Ongoing</h2>
+              <div class="item">
+                <div class="roomlist-item" id="item-container">
+                  <p>D.4</p>
+                  <p>09/05/2024</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Done Section -->
+            <div class="list done">
+              <h2>Done</h2>
+              <div class="item">
+                <div class="roomlist-item" id="item-container">
+                  <p>D.4</p>
+                  <p>15/04/2024</p>
+                </div>
+                <p>CANCELED</p>
+              </div>
+              <div class="item">
+                <div class="roomlist-item" id="item-container">
+                  <p>Audit L1.4</p>
+                  <p>10/04/2024</p>
+                </div>
+                <span class="status success">✔</span>
+              </div>
+              <div class="item">
+                <div class="roomlist-item" id="item-container">
+                  <p>Audit L1.4</p>
+                  <p>01/04/2024</p>
+                </div>
+                <span class="status fail">✘</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Back Button -->
+          <button id="back-button-roomlist" type="button" class="back-button">Back</button>
+        </div>
+      </div>
+
+      <!-- Javascript -->
+      <script src="js/script.js"></script>
+    </body>
+  </html>
+</html>

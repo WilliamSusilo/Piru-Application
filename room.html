@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="x-icon" href="assets/Logo/Logo-3-RB.PNG" />
+    <title>Piru Application</title>
+
+    <!-- Symbol -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Box Icon -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <div class="logo_details">
+        <i class="bx bxl-audible icon"></i>
+        <div class="logo_name">Piru Application</div>
+        <i class="bx bx-menu" id="btn-sidebar-menu"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="room.html">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link_name">Room</span>
+          </a>
+          <span class="tooltip">Room</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="link_name">Account</span>
+          </a>
+          <span class="tooltip">Account</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-chat"></i>
+            <span class="link_name">Contact</span>
+          </a>
+          <span class="tooltip">Contact</span>
+        </li>
+        <li class="log_out">
+          <a href="#">
+            <i class="bx bx-log-out" id="log_out"></i>
+            <span class="link_name">Log Out</span>
+          </a>
+          <span class="tooltip">Log Out</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Room Section  -->
+    <section>
+      <div class="room-section">
+        <div class="room-content">
+          <!-- Header -->
+          <div class="header">
+            <h1 class="h1-room">Book your Room Now!</h1>
+            <p>Borrowing a room is now much easier with Piru Application!</p>
+          </div>
+          <img src="assets/Icon/icon-1.png" alt="Icon" class="icon-1" />
+        </div>
+
+        <!-- Action Content -->
+        <div class="container-room">
+          <div class="slide-room">
+            <div class="item-room" style="background-image: url(./assets/Home/bg-roomlist.png)">
+              <div class="content-room">
+                <div class="name">Check The Result of your Previous Room Loans</div>
+                <button id="bookList" type="button" class="btn-secondary">Room Borrowing List</button>
+              </div>
+            </div>
+            <div class="item-room" style="background-image: url(./assets/Home/bg-bookroom.png)">
+              <div class="content-room">
+                <div class="name">Borrow The Room you Need According to your Requirements</div>
+                <button id="bookRoom" type="button" class="btn-primary">Book The Room</button>
+              </div>
+            </div>
+            <div class="item-room" style="background-image: url(./assets/Home/bg-roomlist-2.png)">
+              <div class="content-room">
+                <div class="name">Check The Result of your Previous Room Loans</div>
+                <button id="bookList" type="button" class="btn-secondary">Room Borrowing List</button>
+              </div>
+            </div>
+            <div class="item-room" style="background-image: url(./assets/Home/bg-bookroom-2.png)">
+              <div class="content-room">
+                <div class="name">Borrow The Room you Need According to your Requirements</div>
+                <button id="bookRoom" type="button" class="btn-primary">Book The Room</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-prevnext">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer sidebar-open">
+      <div class="newsletter">
+        <div class="newsletter-left">
+          <h2>Any</h2>
+          <h1>Question?</h1>
+        </div>
+        <div class="newsletter-right">
+          <div class="newsletter-input">
+            <input type="text" placeholder="Enter your simple question" />
+            <button>Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <div class="footer-main">
+          <h2>Piru Application</h2>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="links">
+          <p>Information</p>
+          <li>Jakarta Utara, Indonesia</li>
+          <li>piruapp@gmail.com</li>
+        </div>
+
+        <div class="links">
+          <p>Navigation</p>
+          <a href="#" class="link">Room</a>
+          <a href="#" class="link">Account</a>
+          <a href="#" class="link">Contact</a>
+          <a href="#" class="link">Log Out</a>
+        </div>
+      </div>
+    </div>
+    <!-- End of Footer -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

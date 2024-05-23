@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="x-icon" href="assets/Logo/Logo-3-RB.PNG" />
+    <title>Piru Application</title>
+
+    <!-- Symbol -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Box Icon -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <html>
+    <body>
+      <div class="cover-roomdesc">
+        <div class="container-roomdesc">
+          <!-- Header -->
+          <header>
+            <h1>Room Borrowing List</h1>
+            <p>Your room borrowing history is always stored in the app</p>
+          </header>
+
+          <!-- Main Content -->
+          <section class="content">
+            <div class="title">
+              <h2>Preparing your Coding Test & Interview</h2>
+              <span class="status not-approved">Not Approved</span>
+            </div>
+            <p class="subtitle">By HIMA IC</p>
+            <form class="roomdesc">
+              <div class="form-group">
+                <label for="pic-name">PIC Name</label>
+                <input type="text" id="pic-name" name="pic-name" disabled />
+              </div>
+              <div class="form-group">
+                <label for="room">Room</label>
+                <input type="text" id="room" name="room" disabled />
+              </div>
+              <div class="form-group">
+                <label for="borrowing-date">Borrowing Date</label>
+                <input type="date" id="borrowing-date" name="borrowing-date" disabled />
+              </div>
+              <div class="form-group">
+                <label for="borrowing-time">Time</label>
+                <input type="time" id="borrowing-time" name="borrowing-time" disabled />
+              </div>
+              <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" disabled></textarea>
+              </div>
+              <div class="form-group signed">
+                <p class="signed">Signed <span class="lock">🔒</span></p>
+                <label><input type="checkbox" name="signed" value="Pembina" disabled /> Pembina</label>
+                <label><input type="checkbox" name="signed" value="Pak Ricky" disabled /> Pak Ricky</label>
+                <label><input type="checkbox" name="signed" value="Pak Budi" disabled /> Pak Budi</label>
+                <label><input type="checkbox" name="signed" value="Pak Wiwin" disabled /> Pak Wiwin</label>
+              </div>
+            </form>
+          </section>
+
+          <!-- Back Button -->
+          <button id="back-button-roomdesc" class="back-button">Back</button>
+        </div>
+      </div>
+
+      <!-- Javascript -->
+      <script src="js/script.js"></script>
+    </body>
+  </html>
+</html>
