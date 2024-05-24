@@ -1,5 +1,38 @@
 // The Fiture for Navigate into Different Page
 window.onload = function () {
+  // Splash Screen
+  const loadingPage = document.querySelector(".loading-page");
+  const logoName = document.querySelector(".logo-name");
+
+  if (loadingPage) {
+    gsap.fromTo(
+      loadingPage,
+      { opacity: 1 },
+      {
+        opacity: 0,
+        display: "none",
+        duration: 1.5,
+        delay: 3.5,
+      }
+    );
+  }
+
+  if (logoName) {
+    gsap.fromTo(
+      logoName,
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        delay: 0.5,
+      }
+    );
+  }
+
   // Snow Effect on Website
   const snow = document.querySelector(".signin");
   if (snow) {
@@ -50,9 +83,17 @@ window.onload = function () {
     };
   }
 
+  // Room Page to Test Book Room
+  const testBookBtn = document.querySelectorAll(".btn-primary");
+  testBookBtn.forEach((button) => {
+    button.onclick = function () {
+      window.location.href = "test-book.html";
+    };
+  });
+
   // Room Page to Book Room
-  const bookRoomBtns = document.querySelectorAll(".btn-primary");
-  bookRoomBtns.forEach((button) => {
+  const bookRoomBtn = document.querySelectorAll(".btn-fillform");
+  bookRoomBtn.forEach((button) => {
     button.onclick = function () {
       window.location.href = "bookroom.html";
     };
@@ -90,6 +131,14 @@ window.onload = function () {
     };
   }
 
+  // Room Desc to Room List
+  const backBtnAcc = document.getElementById("back-button-account");
+  if (backBtnAcc) {
+    backBtnAcc.onclick = function () {
+      window.location.href = "room.html";
+    };
+  }
+
   // Room Content Slider
   let next = document.querySelector(".next");
   let prev = document.querySelector(".prev");
@@ -103,4 +152,19 @@ window.onload = function () {
     let items = document.querySelectorAll(".item-room");
     document.querySelector(".slide-room").prepend(items[items.length - 1]); // here the length of items = 6
   });
+
+  // Flip Card in Contact Section
+  const card = document.querySelector(".card");
+  const flipToBackButton = document.getElementById("flip-to-back");
+  const flipToFrontButton = document.getElementById("flip-to-front");
+
+  if (card && flipToBackButton && flipToFrontButton) {
+    flipToBackButton.addEventListener("click", function () {
+      card.classList.add("flipped");
+    });
+
+    flipToFrontButton.addEventListener("click", function () {
+      card.classList.remove("flipped");
+    });
+  }
 };

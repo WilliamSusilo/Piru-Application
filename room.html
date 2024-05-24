@@ -30,21 +30,21 @@
           <span class="tooltip">Room</span>
         </li>
         <li>
-          <a href="#">
+          <a href="account.html">
             <i class="bx bx-user"></i>
             <span class="link_name">Account</span>
           </a>
           <span class="tooltip">Account</span>
         </li>
         <li>
-          <a href="#">
+          <a href="contact.html">
             <i class="bx bx-chat"></i>
             <span class="link_name">Contact</span>
           </a>
           <span class="tooltip">Contact</span>
         </li>
         <li class="log_out">
-          <a href="#">
+          <a href="index.html">
             <i class="bx bx-log-out" id="log_out"></i>
             <span class="link_name">Log Out</span>
           </a>
@@ -54,18 +54,20 @@
     </div>
 
     <!-- Room Section  -->
-    <section>
-      <div class="room-section">
+    <div class="room-section">
+      <!-- Header -->
+      <section class="content-room">
         <div class="room-content">
-          <!-- Header -->
           <div class="header">
             <h1 class="h1-room">Book your Room Now!</h1>
             <p>Borrowing a room is now much easier with Piru Application!</p>
           </div>
           <img src="assets/Icon/icon-1.png" alt="Icon" class="icon-1" />
         </div>
+      </section>
 
-        <!-- Action Content -->
+      <!-- Action Content -->
+      <section class="main-room">
         <div class="container-room">
           <div class="slide-room">
             <div class="item-room" style="background-image: url(./assets/Home/bg-roomlist.png)">
@@ -95,54 +97,58 @@
           </div>
 
           <div class="btn-prevnext">
-            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+            <button class="prev"><i class="bx bxs-chevron-left"></i></button>
+            <button class="next"><i class="bx bxs-chevron-right"></i></button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="footer sidebar-open">
-      <div class="newsletter">
-        <div class="newsletter-left">
-          <h2>Any</h2>
-          <h1>Question?</h1>
-        </div>
-        <div class="newsletter-right">
-          <div class="newsletter-input">
-            <input type="text" placeholder="Enter your simple question" />
-            <button>Submit</button>
+      <!-- Footer -->
+      <section class="footer-section">
+        <hr class="divider" />
+        <div class="newsletter">
+          <div class="newsletter-left">
+            <h2>Any</h2>
+            <h1>Question?</h1>
+          </div>
+          <div class="newsletter-right">
+            <div class="newsletter-input">
+              <input type="text" placeholder="Enter your simple question" />
+              <button>Submit</button>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="footer sidebar-open">
+          <div class="footer-content">
+            <div class="links">
+              <h2>Piru Application</h2>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
 
-      <div class="footer-content">
-        <div class="footer-main">
-          <h2>Piru Application</h2>
-          <div class="social-links">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <div class="links">
+              <p>Information</p>
+              <li>Jakarta Utara, Indonesia</li>
+              <li>piruapp@gmail.com</li>
+            </div>
+
+            <div class="links">
+              <p>Navigation</p>
+              <a href="#" class="link">Room</a>
+              <a href="#" class="link">Account</a>
+              <a href="#" class="link">Contact</a>
+              <a href="#" class="link">Log Out</a>
+            </div>
           </div>
         </div>
-
-        <div class="links">
-          <p>Information</p>
-          <li>Jakarta Utara, Indonesia</li>
-          <li>piruapp@gmail.com</li>
-        </div>
-
-        <div class="links">
-          <p>Navigation</p>
-          <a href="#" class="link">Room</a>
-          <a href="#" class="link">Account</a>
-          <a href="#" class="link">Contact</a>
-          <a href="#" class="link">Log Out</a>
-        </div>
-      </div>
+        <hr class="footer-divider" />
+        <p class="copyright">&copy; 2024 Piru Application - IW</p>
+      </section>
     </div>
-    <!-- End of Footer -->
 
     <script src="js/script.js"></script>
   </body>
