@@ -152,19 +152,4 @@ window.onload = function () {
     let items = document.querySelectorAll(".item-room");
     document.querySelector(".slide-room").prepend(items[items.length - 1]); // here the length of items = 6
   });
-
-  // Flip Card in Contact Section
-  const card = document.querySelector(".card");
-  const flipToBackButton = document.getElementById("flip-to-back");
-  const flipToFrontButton = document.getElementById("flip-to-front");
-
-  if (card && flipToBackButton && flipToFrontButton) {
-    flipToBackButton.addEventListener("click", function () {
-      card.classList.add("flipped");
-    });
-
-    flipToFrontButton.addEventListener("click", function () {
-      card.classList.remove("flipped");
-    });
-  }
 };
