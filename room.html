@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
     <!-- Sidebar Section -->
     <div class="sidebar">
       <div class="logo_details">
@@ -56,7 +64,7 @@
     <!-- Room Section  -->
     <div class="room-section">
       <!-- Header -->
-      <section class="content-room">
+      <section class="content-room" data-aos="zoom-in" data-aos-duration="1000">
         <div class="room-content">
           <div class="header">
             <h1 class="h1-room">Book your Room Now!</h1>
@@ -67,7 +75,7 @@
       </section>
 
       <!-- Action Content -->
-      <section class="main-room">
+      <section class="main-room" data-aos="zoom-in" data-aos-duration="1000">
         <div class="container-room">
           <div class="slide-room">
             <div class="item-room" style="background-image: url(./assets/Home/bg-roomlist.png)">

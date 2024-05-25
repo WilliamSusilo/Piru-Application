@@ -46,6 +46,60 @@ window.onload = function () {
     });
   }
 
+  // Welcome Text in SignIn Page
+  const openModalButtons = document.querySelectorAll("[data-modal-target]");
+  const closeModalButtons = document.querySelectorAll("[data-close-button]");
+  const overlay = document.getElementById("overlay");
+
+  if (openModalButtons) {
+    openModalButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const modal = document.querySelector(button.dataset.modalTarget);
+        if (modal) {
+          openModal(modal);
+        }
+      });
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      const modals = document.querySelectorAll(".modal.active");
+      if (modals) {
+        modals.forEach((modal) => {
+          if (modal) {
+            closeModal(modal);
+          }
+        });
+      }
+    });
+  }
+
+  if (closeModalButtons) {
+    closeModalButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const modal = button.closest(".modal");
+        if (modal) {
+          closeModal(modal);
+        }
+      });
+    });
+  }
+
+  function openModal(modal) {
+    if (modal) {
+      modal.classList.add("active");
+      overlay.classList.add("active");
+    }
+  }
+
+  function closeModal(modal) {
+    if (modal) {
+      modal.classList.remove("active");
+      overlay.classList.remove("active");
+    }
+  }
+
   // Login to Room Page
   const signInBtn = document.getElementById("signIn");
   if (signInBtn) {
