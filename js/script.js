@@ -186,7 +186,7 @@ window.onload = function () {
   }
 
   // Room Desc to Room List
-  const backBtnAcc = document.getElementById("back-button-account");
+  const backBtnAcc = document.getElementById("back-button");
   if (backBtnAcc) {
     backBtnAcc.onclick = function () {
       window.location.href = "room.html";
