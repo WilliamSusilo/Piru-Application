@@ -154,7 +154,6 @@ label {
   text-align: center;
   letter-spacing: 5px;
   line-height: 3.5rem;
-  margin-left: 20px;
   font-weight: 700;
 }
 /* End of Splash Screen */
@@ -454,12 +453,9 @@ label {
   border: 10px solid;
   animation: borderColorChange 5s linear infinite;
   filter: drop-shadow(8px 8px 10px black);
-  /* Tambahan untuk Responsive */
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-between;
-  /* align-items: center; */
 }
 
 .container-signin form {
@@ -467,19 +463,11 @@ label {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* padding: 0 70px; */
-  /* height: 100%; */
-  /* width: 360px; */
 }
 
 .form-container-signin {
-  /* position: absolute;
-  top: 0; */
-  /* right: 0; */
-  /* height: 100%; */
   transition: all 0.6s ease-in-out;
   width: 50%;
-  /* z-index: 1; */
   display: flex;
   flex-direction: columns;
   justify-content: center;
@@ -552,7 +540,6 @@ label {
 .toggle {
   background-color: var(--toggle-bg-color);
   transition: all 0.6s ease-in-out;
-  /* padding: 0 40px; */
   width: 50%;
   display: flex;
   flex-direction: columns;
@@ -563,23 +550,15 @@ label {
 }
 
 .toggle-left {
-  /* background-color: var(--toggle-bg-color); */
-  /* position: relative;
-  left: -100%; */
-  /* width: 100%; */
   transition: all 0.6s ease-in-out;
   color: black;
 }
 
 .toggle-panel {
-  /* position: relative; */
-  /* width: 100%; */
-  /* height: 100%; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* padding: 0 30px; */
   text-align: center;
   transition: all 0.6s ease-in-out;
 }
@@ -873,8 +852,8 @@ section .main-room {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 950px;
-  height: 600px;
+  width: 100rem;
+  height: 100%;
   overflow: hidden;
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
 }
@@ -908,15 +887,6 @@ section .main-room {
 .slide-room .item-room:nth-child(4) {
   left: calc(50% + 220px);
 }
-.slide-room .item-room:nth-child(5) {
-  left: calc(50% + 440px);
-}
-
-/* here n = 0, 1, 2, 3,... */
-.slide-room .item-room:nth-child(n + 6) {
-  left: calc(50% + 660px);
-  opacity: 0;
-}
 
 .item-room .content-room {
   position: absolute;
@@ -939,13 +909,6 @@ section .main-room {
   opacity: 0;
   animation: animate 1s ease-in-out 1 forwards;
   margin-bottom: 2rem;
-}
-
-.content-room .des {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: animate 1s ease-in-out 0.3s 1 forwards;
 }
 
 .content-room.prev,
@@ -1022,6 +985,14 @@ section .main-booking {
   scroll-snap-align: start;
 }
 
+.img-bookroom {
+  scroll-snap-align: start;
+}
+
+.form-container-room {
+  scroll-snap-align: start;
+}
+
 .content-booking {
   height: 90vh;
   display: flex;
@@ -1060,7 +1031,7 @@ section .main-booking {
   text-align: center;
   background-color: var(--bg-color);
   border-radius: 15px;
-  box-shadow: 10px 10px 10px #000000;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
   padding: 2rem;
   text-align: center;
   max-width: 800px;
@@ -1191,17 +1162,6 @@ section .main-booking {
   gap: 1rem;
 }
 
-.img-roomlist {
-  width: 10%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  transform: translateX(100px);
-}
-
 .container-roomlist {
   background-color: var(--bg-color);
   width: 100%;
@@ -1241,7 +1201,7 @@ header.roomlist p {
   border: none;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  width: 75%;
+  width: 80%;
   padding: 2rem 2rem;
   margin: 0 auto;
 }
@@ -1284,10 +1244,11 @@ header.roomlist p {
   display: flex;
   justify-content: space-between;
   margin: 3.5rem 0;
+  gap: 3rem;
 }
 
 .list {
-  width: 30%;
+  width: 100%;
 }
 
 .list h2 {
@@ -1298,7 +1259,6 @@ header.roomlist p {
 }
 
 .item {
-  /* border: 0.5px solid #ddd; */
   border-radius: 15px;
   background-color: var(--light-gray);
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
@@ -1645,7 +1605,7 @@ p.signed {
   background-color: var(--medium-gray);
   width: 100%;
   overflow: auto;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1676,7 +1636,7 @@ p.signed {
 .content-account {
   background-color: var(--bg-color);
   border-radius: 15px;
-  box-shadow: 10px 10px 10px #000000;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
   width: 1000px;
   padding: 3rem;
   display: flex;
@@ -1738,6 +1698,10 @@ p.signed {
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
 }
 
+.profile h2 {
+  text-align: center;
+}
+
 .profile .divider {
   width: 50%;
   margin: 2rem;
@@ -1750,7 +1714,7 @@ p.signed {
   background-color: var(--medium-gray);
   width: 100%;
   overflow: auto;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1780,7 +1744,7 @@ p.signed {
 .content-contact {
   background-color: var(--bg-color);
   border-radius: 15px;
-  box-shadow: 10px 10px 10px #000000;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
   width: 1000px;
   padding: 3rem;
   display: flex;
@@ -1836,6 +1800,10 @@ p.signed {
   align-items: center;
 }
 
+.contact h2 {
+  text-align: center;
+}
+
 .contact .divider {
   width: 50%;
   margin: 2rem;
@@ -1852,9 +1820,7 @@ p.signed {
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: white;
-  padding: 0 40px;
   transition: padding-left 0.5s ease;
-  padding-left: var(--sidebar-width);
 }
 
 .sidebar-open .footer {
@@ -1934,7 +1900,6 @@ p.signed {
 }
 
 .footer-section {
-  margin: 6rem;
   height: 60vh;
 }
 
@@ -2007,12 +1972,59 @@ p.copyright {
 }
 
 /* Responsive Website */
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and down) */
 @media only screen and (max-width: 1200px) {
-  /* Test Book and Booking Section */
+  /* Room Section */
+  .room-content {
+    margin: 0 auto;
+  }
+  h1.h1-room {
+    font-size: 2rem;
+  }
+  .main-room {
+    height: 100vh;
+  }
+  .container-room {
+    width: 80rem;
+  }
+  .container-room .slide-room .item-room {
+    width: 10rem;
+    height: 10rem;
+    top: 10%;
+  }
+  .slide-room .item-room:nth-child(1),
+  .slide-room .item-room:nth-child(2) {
+    top: 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 90%;
+  }
+  .slide-room .item-room:nth-child(3) {
+    left: 7%;
+  }
+  .slide-room .item-room:nth-child(4) {
+    left: calc(7% + 150px);
+  }
+  .item-room .content-room {
+    top: 55%;
+    left: 50px;
+    width: 180px;
+    font-size: 10rem;
+    text-align: left;
+  }
+  .content-room .name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .btn-prevnext {
+    top: 50rem;
+    margin-top: 3rem;
+  }
+
+  /* Test Book and Bookroom Section */
   .main-booking {
     width: 80%;
-    height: 100vh;
+    height: 130vh;
     flex-direction: column;
     margin: 0 auto;
   }
@@ -2036,14 +2048,9 @@ p.copyright {
   .content-contact {
     width: 80%;
   }
-
-  /* Footer */
-  .footer-section {
-    width: 80%;
-  }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices (laptops/desktops, 992px and down) */
 @media only screen and (max-width: 992px) {
   /* Sidebar */
   .sidebar {
@@ -2112,9 +2119,72 @@ p.copyright {
   }
 
   /* Room Section */
-  .room-content {
-    width: 90%;
-    margin-left: 8rem;
+  .room-section {
+    margin-top: 12rem;
+  }
+  h1.h1-room {
+    font-size: 2rem;
+  }
+  .main-room {
+    height: 100vh;
+  }
+  .container-room {
+    width: 80rem;
+  }
+  .container-room .slide-room .item-room {
+    width: 10rem;
+    height: 10rem;
+    top: 10%;
+  }
+  .slide-room .item-room:nth-child(1),
+  .slide-room .item-room:nth-child(2) {
+    top: 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 90%;
+  }
+  .slide-room .item-room:nth-child(3) {
+    left: 7%;
+  }
+  .slide-room .item-room:nth-child(4) {
+    left: calc(7% + 150px);
+  }
+  .item-room .content-room {
+    top: 55%;
+    left: 50px;
+    width: 180px;
+    font-size: 10rem;
+    text-align: left;
+  }
+  .content-room .name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .btn-prevnext {
+    top: 50rem;
+    margin-top: 3rem;
+  }
+
+  /* Bookroom Section */
+  .img-bookroom {
+    width: 40%;
+    margin-top: 10rem;
+  }
+  .form-container-room {
+    margin-bottom: 10rem;
+  }
+
+  /* Roomlist Section */
+  .container-roomlist {
+    margin-top: 15rem;
+  }
+
+  /* Roomdesc Section */
+  .container-roomdesc {
+    margin-top: 15rem;
+  }
+  .img-roomdesc {
+    display: none;
   }
 
   /* Account Section */
@@ -2139,7 +2209,7 @@ p.copyright {
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
   /* Logo Img */
   .logo-img {
@@ -2229,20 +2299,90 @@ p.copyright {
 
   /* Room Section */
   .room-section {
-    margin-top: 10rem;
+    margin-top: 12rem;
   }
   .room-content {
-    width: 90%;
-    margin: 3rem 3rem 0;
+    margin: 0 auto;
   }
-  img.icon-1 {
-    width: 12rem;
+  h1.h1-room {
+    font-size: 2rem;
+  }
+  .main-room {
+    height: 100vh;
+  }
+  .container-room {
+    width: 60rem;
+  }
+  .container-room .slide-room .item-room {
+    width: 10rem;
+    height: 10rem;
+    top: 10%;
+  }
+  .slide-room .item-room:nth-child(1),
+  .slide-room .item-room:nth-child(2) {
+    top: 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 90%;
+  }
+  .slide-room .item-room:nth-child(3) {
+    left: 7%;
+  }
+  .slide-room .item-room:nth-child(4) {
+    left: calc(7% + 150px);
+  }
+  .item-room .content-room {
+    top: 55%;
+    left: 50px;
+    width: 180px;
+    font-size: 10rem;
+    text-align: left;
+  }
+  .content-room .name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .btn-prevnext {
+    top: 50rem;
+    margin-top: 3rem;
   }
 
   /* Bookroom */
   .img-bookroom img {
-    margin-top: 30rem;
     width: 70%;
+  }
+
+  /* Roomlist Section */
+  .container-roomlist {
+    margin-top: 30rem;
+  }
+  .filters {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .selected-time {
+    width: 90%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .selected-time label {
+    font-weight: 600;
+    font-size: 10px;
+  }
+  #month,
+  #year {
+    font-size: 10px;
+  }
+  .lists {
+    flex-direction: column;
+  }
+
+  /* Roomdesc Section */
+  .container-roomdesc {
+    margin-top: 15rem;
+  }
+  .img-roomdesc {
+    display: none;
   }
 
   /* Account Section */
@@ -2267,6 +2407,15 @@ p.copyright {
   }
   .contact .gif-icon {
     width: 10rem;
+  }
+
+  /* Footer */
+  .footer {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .newsletter {
+    width: 80%;
   }
 }
 
@@ -2333,22 +2482,92 @@ p.copyright {
   .room-content {
     margin: 0 auto;
   }
+  .room-content img {
+    display: none;
+  }
   h1.h1-room {
     font-size: 2rem;
+  }
+  .main-room {
+    height: 100vh;
+  }
+  .container-room {
+    width: 30rem;
+  }
+  .container-room .slide-room .item-room {
+    width: 10rem;
+    height: 10rem;
+    top: 10%;
+  }
+  .slide-room .item-room:nth-child(1),
+  .slide-room .item-room:nth-child(2) {
+    top: 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 90%;
+  }
+  .slide-room .item-room:nth-child(3) {
+    left: 7%;
+  }
+  .slide-room .item-room:nth-child(4) {
+    left: calc(7% + 150px);
+  }
+  .item-room .content-room {
+    top: 55%;
+    left: 50px;
+    width: 180px;
+    font-size: 10rem;
+    text-align: left;
+  }
+  .content-room .name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .btn-prevnext {
+    top: 60rem;
+    margin-top: 3rem;
   }
 
   /* Test Book Section */
   .booking-img {
     margin-top: 25rem;
   }
+  .img-bookroom {
+    width: 100%;
+  }
+
+  /* Bookroom Section */
+  .booking-section .main-booking .form {
+    display: none;
+  }
+
+  /* Roomdesc Section */
+  .container-roomdesc {
+    margin-top: 30rem;
+  }
+  .img-roomdesc {
+    display: none;
+  }
+
+  /* Account Section */
+  .main-account {
+    margin-top: 15rem;
+    margin-bottom: 10rem;
+  }
+
+  /* Contact Session */
+  .content-contact {
+    margin-top: 15rem;
+    margin-bottom: 10rem;
+  }
 
   /* Footer */
   .footer {
-    width: 65%;
-    margin: 0 auto;
+    width: 80%;
+    /* margin: 0 auto; */
   }
   .newsletter {
-    width: 65%;
+    width: 80%;
     display: flex;
     flex-direction: column;
   }
@@ -2362,9 +2581,5 @@ p.copyright {
   .newsletter-input input {
     width: 18%;
     height: 2.5rem;
-    padding-left: 5px;
-  }
-  .footer-content {
-    padding: 100px 100px 0 0;
   }
 }
