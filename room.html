@@ -29,7 +29,8 @@
         <div class="logo_name">Piru Application</div>
         <i class="bx bx-menu" id="btn-sidebar-menu"></i>
       </div>
-      <ul class="nav-list">
+      <a class="button-keluar">SHOW / HIDE</a>
+      <ul class="nav-list side">
         <li>
           <a href="room.html">
             <i class="bx bx-grid-alt"></i>
@@ -76,8 +77,21 @@
 
       <!-- Action Content -->
       <section class="main-room" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="container-room">
-          <div class="slide-room">
+        <!-- <div class="container-room"> -->
+        <div class="room-container">
+          <div class="room-box booking" data-aos="fade-down">
+            <h3>Book The Room</h3>
+            <img src="assets/Home/bg-bookroom.png" class="room-img" alt="" />
+            <p>Borrow The Room you Need According to your Requirements</p>
+          </div>
+
+          <div class="room-box list" data-aos="fade-down">
+            <h3>Room Borrowing List</h3>
+            <img src="assets/Home/bg-roomlist-2.png" class="room-img" alt="" />
+            <p>Check The Result History of your Previous Room Loans</p>
+          </div>
+        </div>
+        <!-- <div class="slide-room">
             <div class="item-room" style="background-image: url(./assets/Home/bg-roomlist.png)">
               <div class="content-room">
                 <div class="name">Check The Result of your Previous Room Loans</div>
@@ -102,27 +116,26 @@
                 <button id="bookRoom" type="button" class="btn-primary">Book The Room</button>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="btn-prevnext">
+        <!-- <div class="btn-prevnext">
             <button class="prev"><i class="bx bxs-chevron-left"></i></button>
             <button class="next"><i class="bx bxs-chevron-right"></i></button>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
       </section>
 
       <!-- Footer -->
       <section class="footer-section">
-        <hr class="divider" />
-        <div class="newsletter">
-          <div class="newsletter-left">
+        <!-- <hr class="divider" /> -->
+        <div class="question">
+          <div class="question-left">
             <h2>Any</h2>
             <h1>Question?</h1>
           </div>
-          <div class="newsletter-right">
-            <div class="newsletter-input">
-              <input type="text" placeholder="Enter your simple question" />
-              <button>Submit</button>
+          <div class="question-right">
+            <div class="question-input">
+              <p>Feel Free to Contact Us for Further Discussion!</p>
             </div>
           </div>
         </div>

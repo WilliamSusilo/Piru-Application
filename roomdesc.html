@@ -30,7 +30,8 @@
           <div class="logo_name">Piru Application</div>
           <i class="bx bx-menu" id="btn-sidebar-menu"></i>
         </div>
-        <ul class="nav-list">
+        <a class="button-keluar">SHOW / HIDE</a>
+        <ul class="nav-list side">
           <li>
             <a href="room.html">
               <i class="bx bx-grid-alt"></i>
@@ -112,16 +113,28 @@
                 </div>
                 <div class="form-group signed">
                   <p class="signed">Signed <span class="lock">🔒</span></p>
-                  <label><input type="checkbox" name="signed" value="Pembina" disabled /> Pembina</label>
-                  <label><input type="checkbox" name="signed" value="Pak Ricky" disabled /> Pak Ricky</label>
-                  <label><input type="checkbox" name="signed" value="Pak Budi" disabled /> Pak Budi</label>
-                  <label><input type="checkbox" name="signed" value="Pak Wiwin" disabled /> Pak Wiwin</label>
+                  <div class="label-details">
+                    <div class="label-person">Pembina</div>
+                    <div class="approve person-1 status not-seen">Not Seen Yet</div>
+                  </div>
+                  <div class="label-details">
+                    <div class="label-person">Pak Ricky</div>
+                    <div class="approve person-2 status approved">Approved</div>
+                  </div>
+                  <div class="label-details">
+                    <div class="label-person">Pak Budi</div>
+                    <div class="approve person-3 status not-approved">Disapproved</div>
+                  </div>
+                  <div class="label-details">
+                    <div class="label-person">Pak Wiwin</div>
+                    <div class="approve person-4 status not-seen">Not Seen Yet</div>
+                  </div>
                 </div>
               </form>
             </section>
 
             <!-- Back Button -->
-            <button id="back-button-roomdesc" class="btn">Back</button>
+            <button class="btn" id="back-button-roomdesc">Back</button>
           </div>
           <div class="img-roomdesc">
             <img src="./assets/Icon/icon-6.png" alt="Image" />

@@ -108,10 +108,21 @@ window.onload = function () {
     };
   }
 
+  // Navbar
+  // function showSidebar() {
+  //   const sidebar = document.querySelector(".sidebar");
+  //   sidebar.style.display = "flex";
+  // }
+  // function hideSidebar() {
+  //   const sidebar = document.querySelector(".sidebar");
+  //   sidebar.style.display = "none";
+  // }
+
   // Sidebar
   const sidebar = document.querySelector(".sidebar");
   const closeBtn = document.querySelector("#btn-sidebar-menu");
   const logOut = document.querySelector("#log_out");
+  const navList = document.querySelector(".sidebar .nav-list");
 
   // Triple Line Button
   if (closeBtn) {
@@ -120,6 +131,32 @@ window.onload = function () {
       menuBtnChange();
     });
   }
+
+  const buttonKeluar = document.querySelector(".sidebar a.button-keluar");
+  buttonKeluar.addEventListener("click", function () {
+    navList.classList.toggle("side");
+    menuBtnChange();
+  });
+
+  // Sidebar Toggle Logic
+  function toggleSidebarClass() {
+    const sidebar = document.querySelector(".sidebar");
+    if (window.innerWidth <= 1190) {
+      sidebar.classList.remove("open");
+      menuBtnChange();
+    } else if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        sidebar.classList.add("open");
+        menuBtnChange();
+      });
+    }
+  }
+
+  // Initial check for sidebar
+  toggleSidebarClass();
+
+  // Add event listener for window resize
+  window.addEventListener("resize", toggleSidebarClass);
 
   // Logic Statement for Open and Close the Sidebar
   function menuBtnChange() {
@@ -138,7 +175,7 @@ window.onload = function () {
   }
 
   // Room Page to Test Book Room
-  const testBookBtn = document.querySelectorAll(".btn-primary");
+  const testBookBtn = document.querySelectorAll(".booking");
   testBookBtn.forEach((button) => {
     button.onclick = function () {
       window.location.href = "test-book.html";
@@ -154,7 +191,7 @@ window.onload = function () {
   });
 
   // Room Page to Room List
-  const bookListBtns = document.querySelectorAll(".btn-secondary");
+  const bookListBtns = document.querySelectorAll(".list");
   bookListBtns.forEach((button) => {
     button.onclick = function () {
       window.location.href = "roomlist.html";
