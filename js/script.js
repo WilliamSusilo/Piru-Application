@@ -108,15 +108,20 @@ window.onload = function () {
     };
   }
 
-  // Navbar
-  // function showSidebar() {
-  //   const sidebar = document.querySelector(".sidebar");
-  //   sidebar.style.display = "flex";
-  // }
-  // function hideSidebar() {
-  //   const sidebar = document.querySelector(".sidebar");
-  //   sidebar.style.display = "none";
-  // }
+  // Sidebar Toggle Logic
+  function toggleSidebarClass() {
+    const sidebar = document.querySelector(".sidebar");
+    if (window.innerWidth <= 1380 && sidebar.classList.contains("open")) {
+      sidebar.classList.remove("open");
+      menuBtnChange();
+    }
+  }
+
+  // Initial check for sidebar
+  toggleSidebarClass();
+
+  // Add event listener for window resize
+  window.addEventListener("resize", toggleSidebarClass);
 
   // Sidebar
   const sidebar = document.querySelector(".sidebar");
@@ -137,26 +142,6 @@ window.onload = function () {
     navList.classList.toggle("side");
     menuBtnChange();
   });
-
-  // Sidebar Toggle Logic
-  function toggleSidebarClass() {
-    const sidebar = document.querySelector(".sidebar");
-    if (window.innerWidth <= 1190) {
-      sidebar.classList.remove("open");
-      menuBtnChange();
-    } else if (closeBtn) {
-      closeBtn.addEventListener("click", function () {
-        sidebar.classList.add("open");
-        menuBtnChange();
-      });
-    }
-  }
-
-  // Initial check for sidebar
-  toggleSidebarClass();
-
-  // Add event listener for window resize
-  window.addEventListener("resize", toggleSidebarClass);
 
   // Logic Statement for Open and Close the Sidebar
   function menuBtnChange() {
@@ -182,7 +167,7 @@ window.onload = function () {
     };
   });
 
-  // Room Page to Book Room
+  // Test Book Room to Book Room
   const bookRoomBtn = document.querySelectorAll(".btn-fillform");
   bookRoomBtn.forEach((button) => {
     button.onclick = function () {
@@ -191,18 +176,18 @@ window.onload = function () {
   });
 
   // Room Page to Room List
-  const bookListBtns = document.querySelectorAll(".list");
+  const bookListBtns = document.querySelectorAll(".listroom");
   bookListBtns.forEach((button) => {
     button.onclick = function () {
       window.location.href = "roomlist.html";
     };
   });
 
-  // Room List to Room Page
-  const backBtnRoomList = document.getElementById("back-button-roomlist");
-  if (backBtnRoomList) {
-    backBtnRoomList.onclick = function () {
-      window.location.href = "room.html";
+  // Room Desc to Room List
+  const backBtnRoomDesc = document.getElementById("back-button-roomdesc");
+  if (backBtnRoomDesc) {
+    backBtnRoomDesc.onclick = function () {
+      window.location.href = "roomlist.html";
     };
   }
 
@@ -213,34 +198,4 @@ window.onload = function () {
       window.location.href = "roomdesc.html";
     };
   }
-
-  // Room Desc to Room List
-  const backBtnRoomDesc = document.getElementById("back-button-roomdesc");
-  if (backBtnRoomDesc) {
-    backBtnRoomDesc.onclick = function () {
-      window.location.href = "roomlist.html";
-    };
-  }
-
-  // Room Desc to Room List
-  const backBtnAcc = document.getElementById("back-button");
-  if (backBtnAcc) {
-    backBtnAcc.onclick = function () {
-      window.location.href = "room.html";
-    };
-  }
-
-  // Room Content Slider
-  let next = document.querySelector(".next");
-  let prev = document.querySelector(".prev");
-
-  next.addEventListener("click", function () {
-    let items = document.querySelectorAll(".item-room");
-    document.querySelector(".slide-room").appendChild(items[0]);
-  });
-
-  prev.addEventListener("click", function () {
-    let items = document.querySelectorAll(".item-room");
-    document.querySelector(".slide-room").prepend(items[items.length - 1]); // here the length of items = 6
-  });
 };
