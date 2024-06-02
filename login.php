@@ -110,21 +110,12 @@ if ( isset($_POST["signin"]) ) {
             <h1 class="signin-h1">Sign In</h1>
             <div class="div_form">
               <div class="input-content">
-<<<<<<< HEAD:index.html
                 <input type="text" id="username" placeholder="" class="input-details" />
                 <label for="username" class="form_label">Username</label>
               </div>
               <div class="input-content">
                 <input type="password" id="password" placeholder="" class="input-details" />
                 <label for="password" class="form_label">Password</label>
-=======
-                <input type="text" placeholder="" name="username" class="input-details" />
-                <label for="" class="form_label">Username</label>
-              </div>
-              <div class="input-content">
-                <input type="password" placeholder="" name="password" class="input-details" />
-                <label for="" class="form_label">Password</label>
->>>>>>> 41e1fd5f2875fd26a6e0927e238b307190ca6c28:login.php
               </div>
               <?php if( isset($error) ) : ?>
                 <p style="color: red; font-style: italic;">incorrect username or password</p>
