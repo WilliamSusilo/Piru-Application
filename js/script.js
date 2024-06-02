@@ -101,12 +101,12 @@ window.onload = function () {
   }
 
   // Login to Room Page
-  const signInBtn = document.getElementById("signIn");
-  if (signInBtn) {
-    signInBtn.onclick = function () {
-      window.location.href = "room.html";
-    };
-  }
+  // const signInBtn = document.getElementById("signIn");
+  // if (signInBtn) {
+  //   signInBtn.onclick = function () {
+  //     window.location.href = "room.html";
+  //   };
+  // }
 
   // Sidebar Toggle Logic
   function toggleSidebarClass() {
@@ -153,17 +153,17 @@ window.onload = function () {
   }
 
   // Logic Statement for Logout
-  if (logOut) {
-    logOut.onclick = function () {
-      window.location.href = "index.html";
-    };
-  }
+  // if (logOut) {
+  //   logOut.onclick = function () {
+  //     window.location.href = "index.html";
+  //   };
+  // }
 
   // Room Page to Test Book Room
   const testBookBtn = document.querySelectorAll(".booking");
   testBookBtn.forEach((button) => {
     button.onclick = function () {
-      window.location.href = "test-book.html";
+      window.location.href = "test-book.php";
     };
   });
 
@@ -171,7 +171,7 @@ window.onload = function () {
   const bookRoomBtn = document.querySelectorAll(".btn-fillform");
   bookRoomBtn.forEach((button) => {
     button.onclick = function () {
-      window.location.href = "bookroom.html";
+      window.location.href = "bookroom.php";
     };
   });
 
@@ -179,7 +179,7 @@ window.onload = function () {
   const bookListBtns = document.querySelectorAll(".listroom");
   bookListBtns.forEach((button) => {
     button.onclick = function () {
-      window.location.href = "roomlist.html";
+      window.location.href = "roomlist.php";
     };
   });
 
@@ -187,7 +187,7 @@ window.onload = function () {
   const backBtnRoomDesc = document.getElementById("back-button-roomdesc");
   if (backBtnRoomDesc) {
     backBtnRoomDesc.onclick = function () {
-      window.location.href = "roomlist.html";
+      window.location.href = "roomlist.php";
     };
   }
 
@@ -195,7 +195,7 @@ window.onload = function () {
   const roomDescBtn = document.getElementById("item-container-1");
   if (roomDescBtn) {
     roomDescBtn.onclick = function () {
-      window.location.href = "roomdesc.html";
+      window.location.href = "roomdesc.php";
     };
   }
 };

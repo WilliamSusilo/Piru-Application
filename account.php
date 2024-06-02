@@ -1,3 +1,16 @@
+<?php 
+
+// starting session
+session_start();
+
+// checking session
+if (!isset($_SESSION["login"])){
+  header("Location: login.php");
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,28 +45,28 @@
       <a class="button-keluar">SHOW / HIDE</a>
       <ul class="nav-list side">
         <li>
-          <a href="room.html">
+          <a href="index.php">
             <i class="bx bx-grid-alt"></i>
             <span class="link_name">Room</span>
           </a>
           <span class="tooltip">Room</span>
         </li>
         <li>
-          <a href="account.html">
+          <a href="account.php">
             <i class="bx bx-user"></i>
             <span class="link_name">Account</span>
           </a>
           <span class="tooltip">Account</span>
         </li>
         <li>
-          <a href="contact.html">
+          <a href="contact.php">
             <i class="bx bx-chat"></i>
             <span class="link_name">Contact</span>
           </a>
           <span class="tooltip">Contact</span>
         </li>
         <li class="log_out">
-          <a href="index.html">
+          <a href="logout.php">
             <i class="bx bx-log-out" id="log_out"></i>
             <span class="link_name">Log Out</span>
           </a>
@@ -62,48 +75,48 @@
       </ul>
     </div>
 
-    <!-- Contact Section -->
-    <div class="contact-section">
-      <section class="main-contact" data-aos="zoom-out" data-aos-duration="1000">
-        <div class="content-contact">
-          <div class="contact">
-            <img src="assets/Icon/gif-icon-1.gif" alt="Icon" class="gif-icon" />
-            <h2>Our Developer</h2>
-            <hr class="divider" />
-          </div>
-
-          <div class="contact-info">
-            <h1>Contact Us</h1>
+    <!-- Account Section -->
+    <div class="account-section">
+      <section class="main-account" data-aos="zoom-out" data-aos-duration="1000">
+        <div class="content-account">
+          <div class="account-info">
+            <h1>My Account</h1>
             <hr class="divider" />
 
-            <form class="contact-details">
+            <form class="account-details">
               <div class="form-group">
-                <label for="developer">Name</label>
-                <textarea id="developer" name="developer" placeholder="Ivander Kendrick Wijono | William Susilo" disabled></textarea>
+                <label for="narahubung">Narahubung</label>
+                <input type="text" id="narahubung" name="narahubung" disabled />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <textarea id="email" name="email" placeholder="ken356750@gmail.com | williamsusilo2827@gmail.com" disabled></textarea>
+                <input type="text" id="email" name="email" disabled />
               </div>
               <div class="form-group">
                 <label for="handphone">Handphone</label>
-                <textarea id="handphone" name="handphone" placeholder="+6281255591942 | +6288211556028" disabled></textarea>
+                <input type="text" id="handphone" name="handphone" disabled />
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" placeholder="As a FullStack Developer" disabled></textarea>
+                <textarea id="description" name="description" disabled></textarea>
               </div>
             </form>
-            <p class="subtitle-info">Greetings to all of you!</p>
-
+            <p class="subtitle-info">Your data is stored securely</p>
             <!-- Back Button -->
             <button id="back-button" class="btn">Back</button>
+          </div>
+
+          <div class="profile">
+            <img src="assets/Icon/icon-4.png" alt="Icon" class="icon-1" />
+            <h2>HIMA IC</h2>
+            <hr class="divider" />
           </div>
         </div>
       </section>
 
       <!-- Footer -->
       <section class="footer-section">
+        <!-- <hr class="divider" /> -->
         <div class="question">
           <div class="question-left">
             <h2>Any</h2>
