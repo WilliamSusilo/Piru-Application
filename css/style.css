@@ -54,14 +54,12 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
   margin: 0;
-  height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  height: 100%;
 }
 
 img {
@@ -771,7 +769,6 @@ label {
   background: var(--bg-color);
   padding: 3rem 2rem 4rem;
   width: 40%;
-  height: 50rem;
   border-radius: 2rem;
   box-sizing: border-box;
   cursor: pointer;
@@ -802,13 +799,8 @@ label {
 
 .room-img {
   max-width: 100%;
-  height: auto;
   padding: 3rem 0 3rem;
   transition: 0.4s ease-in-out;
-}
-
-.main-room {
-  height: 200vh;
 }
 
 .room-content {
@@ -858,7 +850,6 @@ label {
 /* Test Book and Book Room Section*/
 .booking-section {
   width: 100%;
-  height: 200vh;
   background: var(--bg2-color);
 }
 
@@ -875,7 +866,6 @@ label {
 }
 
 .main-testbook {
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -883,7 +873,6 @@ label {
 }
 
 .main-booking {
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1522,6 +1511,7 @@ p.signed {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  padding: 2rem;
   transition: all 0.5s ease;
   z-index: 1;
 }
@@ -1532,7 +1522,6 @@ p.signed {
 
 .main-account {
   width: 90%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1570,7 +1559,6 @@ p.signed {
 .account-details .form-group label {
   margin-bottom: 5px;
   font-weight: 450;
-  font-size: 1.5rem;
 }
 
 .account-details .form-group input,
@@ -1582,7 +1570,7 @@ p.signed {
 }
 
 .account-details .form-group textarea {
-  resize: none;
+  resize: vertical;
   height: 80px;
 }
 
@@ -1619,6 +1607,7 @@ p.signed {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  padding: 2rem;
   transition: all 0.5s ease;
   z-index: 1;
 }
@@ -1629,7 +1618,6 @@ p.signed {
 
 .main-contact {
   width: 90%;
-  height: 200vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1927,6 +1915,14 @@ p.copyright {
     display: none;
   }
 
+  .sidebar li .tooltip {
+    display: none;
+  }
+
+  .sidebar li:hover .tooltip {
+    display: none;
+  }
+
   /* Room Section */
   .room-section {
     margin-top: 12rem;
@@ -1947,7 +1943,6 @@ p.copyright {
 
   .main-booking {
     width: 80%;
-    height: 100vh;
     flex-direction: column;
     margin: 0 auto;
     margin-top: 10rem;
@@ -1991,16 +1986,15 @@ p.copyright {
   }
 
   .content-account {
-    width: 90%;
+    width: 80%;
   }
 
   /* Contact Section */
   .contact-section {
     margin-top: 12rem;
   }
-
   .content-contact {
-    width: 90%;
+    width: 80%;
   }
 }
 
@@ -2022,10 +2016,6 @@ p.copyright {
   .room-content {
     margin-top: 3rem;
     width: 80%;
-  }
-
-  .main-room {
-    height: 100vh;
   }
 
   /* TestBook and Bookroom Section */
@@ -2050,14 +2040,12 @@ p.copyright {
   }
 
   .main-testbook {
-    height: 100vh;
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 20rem;
   }
 
   .main-booking {
     width: 80%;
-    height: 100vh;
     flex-direction: column;
     margin: 0 auto;
     margin-top: 20rem;
@@ -2074,15 +2062,6 @@ p.copyright {
 
   /* Account Section */
   .profile h2 {
-    width: 100%;
-  }
-
-  .account h1 {
-    width: 100%;
-    font-size: 2rem;
-  }
-
-  .account-details {
     width: 100%;
   }
 
@@ -2113,10 +2092,6 @@ p.copyright {
   .footer {
     width: 85%;
     margin: 0 auto;
-  }
-
-  .footer-section {
-    height: 150vh;
   }
 
   .question {
@@ -2155,10 +2130,6 @@ p.copyright {
   /* Room Section */
   h1.h1-room {
     font-size: 2.5rem;
-  }
-
-  .main-room {
-    height: 100vh;
   }
 
   /* Test Book and Bookroom */
@@ -2208,7 +2179,6 @@ p.copyright {
 
   /* Account Section */
   .content-account {
-    width: 100%;
     flex-direction: column-reverse;
   }
 
@@ -2296,10 +2266,6 @@ p.copyright {
     font-size: 2rem;
   }
 
-  .main-room {
-    height: 100vh;
-  }
-
   /* Test Book Section */
   .booking-img {
     margin-top: 25rem;
@@ -2311,7 +2277,6 @@ p.copyright {
 
   /* Bookroom Section */
   .main-booking {
-    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2371,7 +2336,7 @@ p.copyright {
   /* Signin Section */
   .container-signin {
     width: 85%;
-    height: 80%;
+    height: 70%;
   }
   .signin-h1 {
     font-size: 3.7rem;
@@ -2385,11 +2350,7 @@ p.copyright {
     align-items: center;
   }
 
-  /* Room Section */
-  .main-room {
-    height: 155vh;
-  }
-
+  /* Footer */
   .question-input textarea {
     border: none;
     outline: none;
