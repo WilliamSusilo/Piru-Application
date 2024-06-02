@@ -870,6 +870,7 @@ label {
   justify-content: center;
   align-items: center;
   margin: 5rem;
+  height: 90vh;
 }
 
 .main-booking {
@@ -2041,7 +2042,7 @@ p.copyright {
 
   .main-testbook {
     margin: 0 auto;
-    margin-top: 20rem;
+    margin-top: 10rem;
   }
 
   .main-booking {
@@ -2340,6 +2341,12 @@ p.copyright {
   }
   .signin-h1 {
     font-size: 3.7rem;
+  }
+
+  /* Testbook Section */
+  .main-testbook {
+    margin: 0 auto;
+    margin-top: 20rem;
   }
 
   /* Roomlist Section */
