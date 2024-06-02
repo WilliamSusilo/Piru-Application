@@ -1,3 +1,42 @@
+<?php 
+
+require "functions.php";
+
+// starting session
+session_start();
+
+// checking session
+if (!isset($_SESSION["login"])){
+  header("Location: login.php");
+  exit;
+}
+
+// check if the submit button has been pressed
+if (isset($_POST["submit"])){
+
+  // checking for available rooms and it's time
+  $inputDate = $_POST["date"];
+  $borrowingListAll = query("SELECT date, time, room FROM borrowings WHERE date = '$inputDate'");
+
+  if (add($_POST, $_SESSION["username"]) > 0) {
+        echo "
+        <script>
+            alert('Data added successfully');
+            document.location.href = 'roomlist.php';
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('Data failed to add');
+            document.location.href = 'index.php';
+        </script>
+        ";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,28 +72,28 @@
         <a class="button-keluar">SHOW / HIDE</a>
         <ul class="nav-list side">
           <li>
-            <a href="room.html">
+            <a href="index.php">
               <i class="bx bx-grid-alt"></i>
               <span class="link_name">Room</span>
             </a>
             <span class="tooltip">Room</span>
           </li>
           <li>
-            <a href="account.html">
+            <a href="account.php">
               <i class="bx bx-user"></i>
               <span class="link_name">Account</span>
             </a>
             <span class="tooltip">Account</span>
           </li>
           <li>
-            <a href="contact.html">
+            <a href="contact.php">
               <i class="bx bx-chat"></i>
               <span class="link_name">Contact</span>
             </a>
             <span class="tooltip">Contact</span>
           </li>
           <li class="log_out">
-            <a href="index.html">
+            <a href="logout.php">
               <i class="bx bx-log-out" id="log_out"></i>
               <span class="link_name">Log Out</span>
             </a>
@@ -72,12 +111,12 @@
           </div>
           <div class="form-container-room">
             <p class="instruction">Fill in the following form data correctly and carefully</p>
-            <form class="bookroom">
+            <form class="bookroom" action="" method="post">
               <div class="form-bookroom">
                 <div class="form-left">
                   <div class="form-field">
                     <label for="borrow">Borrowing Date<span class="required">*</span></label>
-                    <input type="date" id="borrow" name="borrow" required />
+                    <input type="date" id="borrow" name="date" required />
                   </div>
                   <div class="form-field">
                     <label for="time">Time<span class="required">*</span></label>
@@ -133,14 +172,14 @@
                     <label for="name">PIC Name<span class="required">*</span></label>
                     <input type="text" id="name" name="name" required />
                   </div>
-                  <div class="form-field">
+                  <!-- <div class="form-field">
                     <label for="phone">Whatsapp Number<span class="required">*</span></label>
                     <input type="text" id="phone" name="phone" required />
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="form-right">
-                  <div class="form-field">
+                  <!-- <div class="form-field">
                     <label for="organization">UKM/HIMA<span class="required">*</span></label>
                     <select name="organization" id="organization">
                       <option value="none">None</option>
@@ -170,7 +209,7 @@
                       <option value="gdsc">GDSC</option>
                       <option value="bpm">BPM</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="form-field">
                     <label for="activity">Activity Name<span class="required">*</span></label>
                     <input type="text" id="activity" name="activity" required />
@@ -187,7 +226,7 @@
               </div>
               <!-- Submit Button -->
               <div class="submit-container">
-                <button class="btn-submit btn" id="btn-submit">Submit</button>
+                <button class="btn-submit btn" id="btn-submit" type="submit" name="submit">Submit</button>
               </div>
             </form>
           </div>
