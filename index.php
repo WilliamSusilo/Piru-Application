@@ -1,3 +1,16 @@
+<?php 
+
+// starting session
+session_start();
+
+// checking session
+if (!isset($_SESSION["login"])){
+  header("Location: login.php");
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,28 +45,28 @@
       <a class="button-keluar">SHOW / HIDE</a>
       <ul class="nav-list side">
         <li>
-          <a href="room.html">
+          <a href="index.php">
             <i class="bx bx-grid-alt"></i>
             <span class="link_name">Room</span>
           </a>
           <span class="tooltip">Room</span>
         </li>
         <li>
-          <a href="account.html">
+          <a href="account.php">
             <i class="bx bx-user"></i>
             <span class="link_name">Account</span>
           </a>
           <span class="tooltip">Account</span>
         </li>
         <li>
-          <a href="contact.html">
+          <a href="contact.php">
             <i class="bx bx-chat"></i>
             <span class="link_name">Contact</span>
           </a>
           <span class="tooltip">Contact</span>
         </li>
         <li class="log_out">
-          <a href="index.html">
+          <a href="logout.php">
             <i class="bx bx-log-out" id="log_out"></i>
             <span class="link_name">Log Out</span>
           </a>
@@ -62,48 +75,38 @@
       </ul>
     </div>
 
-    <!-- Account Section -->
-    <div class="account-section">
-      <section class="main-account" data-aos="zoom-out" data-aos-duration="1000">
-        <div class="content-account">
-          <div class="account-info">
-            <h1>My Account</h1>
-            <hr class="divider" />
+    <!-- Room Section  -->
+    <div class="room-section">
+      <!-- Header -->
+      <section class="content-room" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="room-content">
+          <div class="header">
+            <h1 class="h1-room">Book your Room Now!</h1>
+            <p>Borrowing a room is now much easier with Piru Application!</p>
+          </div>
+          <img src="assets/Icon/icon-1.png" alt="Icon" class="icon-1" />
+        </div>
+      </section>
 
-            <form class="account-details">
-              <div class="form-group">
-                <label for="narahubung">Narahubung</label>
-                <input type="text" id="narahubung" name="narahubung" disabled />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" disabled />
-              </div>
-              <div class="form-group">
-                <label for="handphone">Handphone</label>
-                <input type="text" id="handphone" name="handphone" disabled />
-              </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" disabled></textarea>
-              </div>
-            </form>
-            <p class="subtitle-info">Your data is stored securely</p>
-            <!-- Back Button -->
-            <button id="back-button" class="btn">Back</button>
+      <!-- Action Content -->
+      <section class="main-room" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="room-container">
+          <div class="room-box booking">
+            <h3>Book The Room</h3>
+            <img src="assets/Home/bg-bookroom.png" class="room-img" alt="" />
+            <p>Borrow The Room you Need According to your Requirements</p>
           </div>
 
-          <div class="profile">
-            <img src="assets/Icon/icon-4.png" alt="Icon" class="icon-1" />
-            <h2>HIMA IC</h2>
-            <hr class="divider" />
+          <div class="room-box listroom">
+            <h3>Room Borrowing List</h3>
+            <img src="assets/Home/bg-roomlist-2.png" class="room-img" alt="" />
+            <p>Check The Result History of your Previous Room Loans</p>
           </div>
         </div>
       </section>
 
       <!-- Footer -->
       <section class="footer-section">
-        <!-- <hr class="divider" /> -->
         <div class="question">
           <div class="question-left">
             <h2>Any</h2>
@@ -147,7 +150,6 @@
       </section>
     </div>
 
-    <!-- Javascript -->
     <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,3 +1,18 @@
+<?php 
+
+require "functions.php";
+
+// starting session
+session_start();
+
+// checking session
+if (!isset($_SESSION["login"])){
+  header("Location: login.php");
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,28 +48,28 @@
         <a class="button-keluar">SHOW / HIDE</a>
         <ul class="nav-list side">
           <li>
-            <a href="room.html">
+            <a href="index.php">
               <i class="bx bx-grid-alt"></i>
               <span class="link_name">Room</span>
             </a>
             <span class="tooltip">Room</span>
           </li>
           <li>
-            <a href="account.html">
+            <a href="account.php">
               <i class="bx bx-user"></i>
               <span class="link_name">Account</span>
             </a>
             <span class="tooltip">Account</span>
           </li>
           <li>
-            <a href="contact.html">
+            <a href="contact.php">
               <i class="bx bx-chat"></i>
               <span class="link_name">Contact</span>
             </a>
             <span class="tooltip">Contact</span>
           </li>
           <li class="log_out">
-            <a href="index.html">
+            <a href="logout.php">
               <i class="bx bx-log-out" id="log_out"></i>
               <span class="link_name">Log Out</span>
             </a>
