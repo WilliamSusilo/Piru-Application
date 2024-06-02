@@ -1522,7 +1522,6 @@ p.signed {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 2rem;
   transition: all 0.5s ease;
   z-index: 1;
 }
@@ -1571,6 +1570,7 @@ p.signed {
 .account-details .form-group label {
   margin-bottom: 5px;
   font-weight: 450;
+  font-size: 1.5rem;
 }
 
 .account-details .form-group input,
@@ -1582,7 +1582,7 @@ p.signed {
 }
 
 .account-details .form-group textarea {
-  resize: vertical;
+  resize: none;
   height: 80px;
 }
 
@@ -1619,7 +1619,6 @@ p.signed {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 2rem;
   transition: all 0.5s ease;
   z-index: 1;
 }
@@ -1992,15 +1991,16 @@ p.copyright {
   }
 
   .content-account {
-    width: 80%;
+    width: 90%;
   }
 
   /* Contact Section */
   .contact-section {
     margin-top: 12rem;
   }
+
   .content-contact {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -2077,6 +2077,15 @@ p.copyright {
     width: 100%;
   }
 
+  .account h1 {
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .account-details {
+    width: 100%;
+  }
+
   /* Contact Section */
   .content-contact {
     flex-direction: column;
@@ -2104,6 +2113,10 @@ p.copyright {
   .footer {
     width: 85%;
     margin: 0 auto;
+  }
+
+  .footer-section {
+    height: 150vh;
   }
 
   .question {
@@ -2195,6 +2208,7 @@ p.copyright {
 
   /* Account Section */
   .content-account {
+    width: 100%;
     flex-direction: column-reverse;
   }
 
@@ -2297,7 +2311,7 @@ p.copyright {
 
   /* Bookroom Section */
   .main-booking {
-    height: 130vh;
+    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2357,7 +2371,7 @@ p.copyright {
   /* Signin Section */
   .container-signin {
     width: 85%;
-    height: 70%;
+    height: 80%;
   }
   .signin-h1 {
     font-size: 3.7rem;
@@ -2371,7 +2385,11 @@ p.copyright {
     align-items: center;
   }
 
-  /* Footer */
+  /* Room Section */
+  .main-room {
+    height: 155vh;
+  }
+
   .question-input textarea {
     border: none;
     outline: none;
