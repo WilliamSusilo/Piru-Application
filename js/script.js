@@ -168,12 +168,12 @@ window.onload = function () {
   });
 
   // Test Book Room to Book Room
-  const bookRoomBtn = document.querySelectorAll(".btn-fillform");
-  bookRoomBtn.forEach((button) => {
-    button.onclick = function () {
-      window.location.href = "bookroom.php";
-    };
-  });
+  // const bookRoomBtn = document.querySelectorAll(".btn-fillform");
+  // bookRoomBtn.forEach((button) => {
+  //   button.onclick = function () {
+  //     window.location.href = "bookroom.php";
+  //   };
+  // });
 
   // Room Page to Room List
   const bookListBtns = document.querySelectorAll(".listroom");
@@ -192,10 +192,10 @@ window.onload = function () {
   }
 
   // Room List to Room Desc
-  const roomDescBtn = document.getElementById("item-container-1");
-  if (roomDescBtn) {
-    roomDescBtn.onclick = function () {
-      window.location.href = "roomdesc.php";
-    };
-  }
+  // const roomDescBtn = document.getElementById("item-container-1");
+  // if (roomDescBtn) {
+  //   roomDescBtn.onclick = function () {
+  //     window.location.href = "roomdesc.php";
+  //   };
+  // }
 };

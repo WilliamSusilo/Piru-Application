@@ -54,14 +54,12 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
   margin: 0;
-  height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  height: 100%;
 }
 
 img {
@@ -282,7 +280,11 @@ label {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
   transform: rotate(45deg);
   transition: all 0.5s ease;
 }
@@ -371,11 +373,15 @@ label {
 
 .btn::after {
   clip-path: polygon(
-    /* Top-left */ var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+    /* Top-left */ var(--border-width)
+      calc(var(--curve-size) + var(--border-width) * 0.5),
     calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
     /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
     /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
   );
   transition: clip-path 500ms;
@@ -383,12 +389,18 @@ label {
 
 .btn:where(:hover, :focus)::after {
   clip-path: polygon(
-    /* Top-left */ calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* Top-left */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
     calc(100% - var(--border-width)) var(--border-width),
     /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
-    /* bottom-right 2 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width))
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
   );
   transition: 200ms;
 }
@@ -771,7 +783,6 @@ label {
   background: var(--bg-color);
   padding: 3rem 2rem 4rem;
   width: 40%;
-  height: 50rem;
   border-radius: 2rem;
   box-sizing: border-box;
   cursor: pointer;
@@ -802,13 +813,8 @@ label {
 
 .room-img {
   max-width: 100%;
-  height: auto;
   padding: 3rem 0 3rem;
   transition: 0.4s ease-in-out;
-}
-
-.main-room {
-  height: 200vh;
 }
 
 .room-content {
@@ -858,7 +864,6 @@ label {
 /* Test Book and Book Room Section*/
 .booking-section {
   width: 100%;
-  height: 200vh;
   background: var(--bg2-color);
 }
 
@@ -875,15 +880,14 @@ label {
 }
 
 .main-testbook {
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5rem;
+  height: 90vh;
 }
 
 .main-booking {
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1114,7 +1118,8 @@ header.roomlist p {
 }
 
 .list {
-  width: 100%;
+  flex: 1;
+  min-width: 22rem;
 }
 
 .list h2 {
@@ -1533,7 +1538,6 @@ p.signed {
 
 .main-account {
   width: 90%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1630,7 +1634,6 @@ p.signed {
 
 .main-contact {
   width: 90%;
-  height: 200vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1854,6 +1857,71 @@ p.copyright {
   width: 100%;
 }
 
+/* Ken's CSS */
+.status.approved-text {
+  border: none;
+  padding: 5px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff, #f0f0f0);
+  color: green;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.status.not-approved-text {
+  border: none;
+  padding: 5px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff, #f0f0f0);
+  color: red;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.status.not-seen-other {
+  border: none;
+  padding: 5px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff, #f0f0f0);
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.yes {
+  border: none;
+  padding: 5px;
+  background: linear-gradient(135deg, #00ff00, #00b300, #4dff4d);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 3rem;
+  text-align: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.no {
+  border: none;
+  padding: 5px;
+  background: linear-gradient(135deg, #ff3b30, #b30000, #ff5e57);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 3rem;
+  text-align: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.roomdesc .form-group .approval {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  gap: 1rem;
+  text-align: center;
+}
+
 /* Responsive Website */
 
 /* Extra large devices (large laptops and desktops, 1200px and down) */
@@ -1928,6 +1996,14 @@ p.copyright {
     display: none;
   }
 
+  .sidebar li .tooltip {
+    display: none;
+  }
+
+  .sidebar li:hover .tooltip {
+    display: none;
+  }
+
   /* Room Section */
   .room-section {
     margin-top: 12rem;
@@ -1948,7 +2024,6 @@ p.copyright {
 
   .main-booking {
     width: 80%;
-    height: 100vh;
     flex-direction: column;
     margin: 0 auto;
     margin-top: 10rem;
@@ -2024,10 +2099,6 @@ p.copyright {
     width: 80%;
   }
 
-  .main-room {
-    height: 100vh;
-  }
-
   /* TestBook and Bookroom Section */
   .img-testbook {
     width: 60%;
@@ -2050,14 +2121,12 @@ p.copyright {
   }
 
   .main-testbook {
-    height: 100vh;
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 10rem;
   }
 
   .main-booking {
     width: 80%;
-    height: 100vh;
     flex-direction: column;
     margin: 0 auto;
     margin-top: 20rem;
@@ -2144,10 +2213,6 @@ p.copyright {
     font-size: 2.5rem;
   }
 
-  .main-room {
-    height: 100vh;
-  }
-
   /* Test Book and Bookroom */
   .img-testbook {
     width: 70%;
@@ -2182,10 +2247,6 @@ p.copyright {
 
   .lists {
     flex-direction: column;
-  }
-
-  .list .icon-roomlist {
-    width: 5%;
   }
 
   /* Roomdesc Section */
@@ -2282,10 +2343,6 @@ p.copyright {
     font-size: 2rem;
   }
 
-  .main-room {
-    height: 100vh;
-  }
-
   /* Test Book Section */
   .booking-img {
     margin-top: 25rem;
@@ -2297,7 +2354,6 @@ p.copyright {
 
   /* Bookroom Section */
   .main-booking {
-    height: 130vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2361,6 +2417,12 @@ p.copyright {
   }
   .signin-h1 {
     font-size: 3.7rem;
+  }
+
+  /* Testbook Section */
+  .main-testbook {
+    margin: 0 auto;
+    margin-top: 20rem;
   }
 
   /* Roomlist Section */

@@ -13,7 +13,13 @@ if (!isset($_SESSION["login"])){
 
 $username = $_SESSION["username"];
 
-$borrowingList = query("SELECT * FROM borrowings WHERE username = '$username'");
+$account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
+
+if ($account['role'] == 'user'){
+  $borrowingList = query("SELECT * FROM borrowings WHERE username = '$username'");
+} else {
+  $borrowingList = query("SELECT * FROM borrowings");
+}
 
 ?>
 
@@ -95,7 +101,7 @@ $borrowingList = query("SELECT * FROM borrowings WHERE username = '$username'");
             </section>
 
             <!-- Filters for Determining The Output -->
-            <section class="filters">
+            <!-- <section class="filters">
               <div class="selected-time">
                 <div class="selected-month">
                   <label for="month">Month : </label>
@@ -129,50 +135,91 @@ $borrowingList = query("SELECT * FROM borrowings WHERE username = '$username'");
               </div>
 
               <button class="btn" id="show-roomlist-btn">Show</button>
-            </section>
+            </section> -->
 
             <!-- New Section -->
             <section class="lists">
               <div class="list new">
-                <h2>New <img src="assets/Icon/new-icon.png" alt="New" class="icon-roomlist" /></h2>
-                <div class="item">
-                  <div class="roomlist-item" id="item-container-1">
-                    <p>D.4</p>
-                    <p>18/05/2024</p>
-                  </div>
-                  <button id="cancel" class="cancel">Cancel</button>
-                </div>
+                <h2>New</h2>
 
-                <div class="item">
-                  <div class="roomlist-item" id="item-container">
-                    <p>D.4</p>
-                    <p>25/05/2024</p>
-                  </div>
-                  <button id="cancel" class="cancel">Cancel</button>
-                </div>
+                <?php foreach( $borrowingList as $borrow ) : ?>
+
+                  <?php if( strtotime($borrow["date"]) > strtotime(date("Y-m-d")) ) : ?>
+
+                    <div class="item">
+
+                      <?php if ($account['role'] == 'user') : ?>
+                        <a href="roomdesc.php?id=<?= $borrow["BorrowID"]; ?>">
+
+                      <?php else: ?>
+                        <a href="roomdescadmin.php?id=<?= $borrow["BorrowID"]; ?>">
+
+                      <?php endif; ?>
+
+                        <div class="roomlist-item" id="item-container-1">
+                          <p><?= $borrow["room"]; ?></p>
+                          <p><?= $borrow["date"]; ?></p>
+                        </div>
+                      </a>
+                      <a href="hapus.php?id=<?= $borrow["BorrowID"]; ?>" class="cancel" id="cancel" onclick="return confirm('Are You Sure ???');">cancel</a>
+                    </div>
+
+                  <?php endif; ?>
+
+                <?php endforeach; ?>
+
               </div>
 
               <!-- Ongoing Section -->
               <div class="list ongoing">
-                <h2>Ongoing <img src="assets/Icon/load-icon.png" alt="Ongoing" class="icon-roomlist" /></h2>
-                <div class="item">
-                  <div class="roomlist-item" id="item-container">
-                    <p>D.4</p>
-                    <p>09/05/2024</p>
-                  </div>
-                </div>
+                <h2>Today</h2>
+
+                <?php foreach( $borrowingList as $borrow ) : ?>
+
+                  <?php 
+
+                  $dateTimeToday = strtotime(date("Y-m-d"));
+                  $dateTimeDay = strtotime($borrow["date"]);
+
+                  ?>
+
+                  <?php if( $dateTimeDay == $dateTimeToday ) : ?>
+
+                    <div class="item">
+
+                      <?php if ($account['role'] == 'user') : ?>
+                        <a href="roomdesc.php?id=<?= $borrow["BorrowID"]; ?>">
+
+                      <?php else: ?>
+                        <a href="roomdescadmin.php?id=<?= $borrow["BorrowID"]; ?>">
+
+                      <?php endif; ?>
+
+                        <div class="roomlist-item" id="item-container-1">
+                          <p><?= $borrow["room"]; ?></p>
+                          <p><?= $borrow["date"]; ?></p>
+                        </div>
+                      </a>
+                    </div>
+
+                  <?php endif; ?>
+
+                <?php endforeach; ?>
+
               </div>
 
               <!-- Done Section -->
               <div class="list done">
-                <h2>Done <img src="assets/Icon/done-icon.png" alt="Done" class="icon-roomlist" /></h2>
-                <div class="item">
+                <h2>Done</h2>
+                
+                <!-- <div class="item">
                   <div class="roomlist-item" id="item-container">
                     <p>D.4</p>
                     <p>15/04/2024</p>
                   </div>
                   <p class="canceled-text">CANCELED</p>
                 </div>
+
                 <div class="item">
                   <div class="roomlist-item" id="item-container">
                     <p>Audit Lt.4</p>
@@ -180,13 +227,67 @@ $borrowingList = query("SELECT * FROM borrowings WHERE username = '$username'");
                   </div>
                   <span class="status success">✔</span>
                 </div>
+
                 <div class="item">
                   <div class="roomlist-item" id="item-container">
                     <p>Audit Lt.4</p>
                     <p>01/04/2024</p>
                   </div>
                   <span class="status fail">✘</span>
-                </div>
+                </div> -->
+
+                <?php foreach( $borrowingList as $borrow ) : ?>
+
+                  <?php if( strtotime($borrow["date"]) < strtotime(date("Y-m-d")) ) : ?>
+
+                    <div class="item">
+
+                      <?php if ($account['role'] == 'user') : ?>
+                        <a href="roomdesc.php?id=<?= $borrow["BorrowID"]; ?>">
+
+                      <?php else: ?>
+                        <a href="roomdescadmin.php?id=<?= $borrow["BorrowID"]; ?>">
+
+                      <?php endif; ?>
+
+                        <div class="roomlist-item" id="item-container-1">
+                          <p><?= $borrow["room"]; ?></p>
+                          <p><?= $borrow["date"]; ?></p>
+                        </div>
+                      </a>
+
+                      <?php 
+                
+                      $signed = [$borrow["spembina"], $borrow["sricky"], $borrow["sbudi"], $borrow["swiwin"]];
+                      $approved = 0;
+                      for ($i=0; $i<4; $i++){
+                        if ($signed[$i] == true) {
+                          $approved++;
+                        }
+                      }
+
+                      ?>
+
+                      <?php if ( $approved == 4 ) : ?>
+
+                      <span class="status success">✔</span>
+
+                      <?php elseif (in_array("0", $signed, true)) : ?>
+
+                      <span class="status fail">✘</span>
+
+                      <?php else: ?>
+
+                      <p class="canceled-text">CANCELED</p>
+
+                      <?php endif; ?>
+
+                    </div>
+
+                  <?php endif; ?>
+
+                <?php endforeach; ?>
+
               </div>
             </section>
           </div>

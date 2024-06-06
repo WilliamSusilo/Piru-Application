@@ -11,6 +11,14 @@ if (!isset($_SESSION["login"])){
   exit;
 }
 
+$username = $_SESSION["username"];
+$account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
+
+if ($account["role"] != "admin"){
+  header("Location: index.php");
+  exit;
+}
+
 $id = $_GET["id"];
 
 $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
@@ -126,11 +134,12 @@ $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
 
                 <?php endif; ?>
 
+
+
                 <!-- Pakai Ini Sesuai Kebutuhan -->
 
                 <!-- <span class="status canceled">Canceled</span>
                 <span class="status not-approved">Not Approved</span>
-                <span class="status approved">Not Approved</span>
                 <span class="status done">Done</span> -->
               </div>
               <hr class="divider" />
@@ -156,29 +165,37 @@ $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
                   <textarea id="notes" name="notes" disabled><?= htmlspecialchars($borrowingList['equipments']); ?></textarea>
                 </div>
 
-                <!-- User's View -->
-
                 <div class="form-group signed">
                   <p class="signed">Signed <span class="lock">🔒</span></p>
 
                   <?php $signs = array("Pembina", "Pak Ricky", "Pak Budi", "Pak Wiwin"); ?>
                   <?php $signsdb = array("spembina", "sricky", "sbudi", "swiwin"); ?>
+                  <?php $admins = array("pembina", "ricky", "budi", "wiwin"); ?>
+                  <?php $adminsdb = array("ricky", "wiwin", "budi", "joko", "imam", "sylvia", "hanif", "abdul"); ?>
 
                   <?php for ($i=0; $i<4; $i++) : ?>
 
                   <div class="label-details">
                     <div class="label-person"><?= $signs[$i]; ?></div>
-                    <?php if ($borrowingList[$signsdb[$i]] == null) : ?>
+                    <?php if ($borrowingList[$signsdb[$i]] == null && ( $_SESSION["username"] == $admins[$i] || str_contains($_SESSION["password"], $admins[$i]) ) ) : ?>
 
-                      <div class="approve person-1 status not-seen">Not Seen Yet</div>
+                        <!-- Is it okay to use GET method? since it's just admins who can access this url -->
+                        <div class="approval person-1">
+                            <a id="approve" href="ubah.php?adminsign=<?= $signsdb[$i]; ?>&id=<?= $borrowingList['BorrowID']; ?>&approval=true" class="yes">YES</a>
+                            <a id="reject" href="ubah.php?adminsign=<?= $signsdb[$i]; ?>&id=<?= $borrowingList['BorrowID']; ?>&approval=false" class="no">NO</a>
+                        </div>
 
                     <?php elseif (($borrowingList[$signsdb[$i]] == true)) : ?>
 
-                      <div class="approve person-2 status approved">Approved</div>
+                        <div class="approval person-2 status approved-text">Approved</div>
+
+                    <?php elseif (($borrowingList[$signsdb[$i]] == NULL)) : ?>
+
+                        <div class="approval person-4 status not-seen-other">Not Seen Yet</div>
 
                     <?php else : ?>
 
-                      <div class="approve person-3 status not-approved">Disapproved</div>
+                        <div class="approval person-3 status not-approved-text">Disapproved</div>
 
                     <?php endif; ?>
                   </div>
@@ -186,18 +203,26 @@ $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
                   <?php endfor; ?>
 
                   <!-- <div class="label-details">
+                    <div class="label-person">Pembina</div>
+                    <div class="approval person-1">
+                      <button id="approve" class="yes">YES</button>
+                      <button id="reject" class="no">NO</button>
+                    </div>
+                  </div>
+
+                  <div class="label-details">
                     <div class="label-person">Pak Ricky</div>
-                    <div class="approve person-2 status approved">Approved</div>
+                    <div class="approval person-2 status approved-text">Approved</div>
                   </div>
 
                   <div class="label-details">
                     <div class="label-person">Pak Budi</div>
-                    <div class="approve person-3 status not-approved">Disapproved</div>
+                    <div class="approval person-3 status not-approved-text">Disapproved</div>
                   </div>
 
                   <div class="label-details">
                     <div class="label-person">Pak Wiwin</div>
-                    <div class="approve person-4 status not-seen">Not Seen Yet</div>
+                    <div class="approval person-4 status not-seen-other">Not Seen Yet</div>
                   </div> -->
 
                 </div>

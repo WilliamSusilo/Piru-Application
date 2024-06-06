@@ -1,5 +1,7 @@
 <?php 
 
+require "functions.php";
+
 // starting session
 session_start();
 
@@ -8,6 +10,10 @@ if (!isset($_SESSION["login"])){
   header("Location: login.php");
   exit;
 }
+
+$username = $_SESSION["username"];
+
+$account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
 
 ?>
 
@@ -85,25 +91,25 @@ if (!isset($_SESSION["login"])){
 
             <form class="account-details">
               <div class="form-group">
-                <label for="narahubung">Narahubung</label>
-                <input type="text" id="narahubung" name="narahubung" disabled />
+                <label for="narahubung">Name</label>
+                <input type="text" id="narahubung" name="narahubung" value="<?= $account["username"] ?>" disabled />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" disabled />
+                <input type="text" id="email" name="email" value="<?= $account["email"] ?>" disabled />
               </div>
               <div class="form-group">
                 <label for="handphone">Handphone</label>
-                <input type="text" id="handphone" name="handphone" disabled />
+                <input type="text" id="handphone" name="handphone" value="-" disabled />
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" disabled></textarea>
+                <textarea id="description" name="description" disabled>-</textarea>
               </div>
             </form>
             <p class="subtitle-info">Your data is stored securely</p>
             <!-- Back Button -->
-            <button id="back-button" class="btn">Back</button>
+            <a id="back-button" href="index.php" class="btn">Back</a>
           </div>
 
           <div class="profile">
@@ -148,10 +154,10 @@ if (!isset($_SESSION["login"])){
 
             <div class="links">
               <p>Navigation</p>
-              <a href="room.html" class="link">Room</a>
-              <a href="account.html" class="link">Account</a>
-              <a href="contact.html" class="link">Contact</a>
-              <a href="index.html" class="log_out">Log Out</a>
+              <a href="index.php" class="link">Room</a>
+              <a href="account.php" class="link">Account</a>
+              <a href="contact.php" class="link">Contact</a>
+              <a href="logout.php" class="log_out">Log Out</a>
             </div>
           </div>
         </div>

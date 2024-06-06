@@ -51,6 +51,53 @@ if (isset($_POST["submit"])){
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .table {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #eff8ff;
+          padding-top: 5rem;
+      }
+
+      .table-container {
+          width: 90%;
+          max-width: 1000px;
+          overflow-x: auto;
+          background: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+      }
+
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          text-align: left;
+      }
+
+      th, td {
+          padding: 10px;
+          border: 1px solid #ddd;
+      }
+
+      th {
+          background-color: #f8f8f8;
+      }
+
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+      @media (max-width: 600px) {
+          th, td {
+              font-size: 14px;
+              padding: 8px;
+          }
+      }
+    </style>
+
   </head>
   <html>
     <body>
@@ -102,6 +149,55 @@ if (isset($_POST["submit"])){
         </ul>
       </div>
 
+      <div class="table">
+        <section class="table-container">
+          <div>
+
+            <h3 style="margin-bottom: 2rem;">You can't borrow with the same date and time as below!</h3>
+
+            <table>
+              <tr>
+                  <th>No</th>
+                  <th>Username</th>
+                  <th>Name</th>
+                  <th>Activity</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Room</th>
+              </tr>
+
+            <?php
+            // var_dump($_GET);
+            $date = $_GET["date"];
+
+            $borrowingList = query("SELECT * FROM borrowings WHERE date = '$date'");
+
+            // var_dump($borrowingList);
+
+            $no = 1;
+
+            ?>
+
+            <?php foreach( $borrowingList as $borrow ) : ?>
+
+              <tr>
+                  <td><?= $no++; ?></td>
+                  <td><?= $borrow["username"]; ?></td>
+                  <td><?= $borrow["name"]; ?></td>
+                  <td><?= $borrow["activity"]; ?></td>
+                  <td><?= $borrow["date"]; ?></td>
+                  <td><?= $borrow["time"]; ?></td>
+                  <td><?= $borrow["room"]; ?></td>
+              </tr>
+
+            <?php endforeach; ?>
+
+            </table>
+
+          </div>
+        </section>
+      </div>
+
       <!-- Booking Section -->
       <div class="booking-section">
         <!-- Booking Form -->
@@ -116,7 +212,8 @@ if (isset($_POST["submit"])){
                 <div class="form-left">
                   <div class="form-field">
                     <label for="borrow">Borrowing Date<span class="required">*</span></label>
-                    <input type="date" id="borrow" name="date" required />
+                    <input type="hidden" id="borrow" name="date" value="<?= $_GET["date"] ?>" />
+                    <h4 style="font-size: 1.5rem;"><?= $_GET["date"] ?></h4>
                   </div>
                   <div class="form-field">
                     <label for="time">Time<span class="required">*</span></label>

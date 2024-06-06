@@ -84,19 +84,22 @@ if (!isset($_SESSION["login"])){
             <img src="./assets/Icon/icon-3.png" alt="Image" />
           </div>
           <div class="form-container-room">
-            <p class="instruction">Check this carefully before you borrow it!</p>
-            <form class="bookroom">
+            <p class="instruction">Enter the date you want to borrow the room!</p>
+            <form class="bookroom" action="bookroom.php" method="get">
               <div class="form-bookroom">
                 <div class="form-field">
                   <label for="borrow" class="test-book">Borrowing Date</label>
-                  <input type="date" id="borrow" name="borrow" required />
+                  <input type="date" id="borrow" name="date" required />
+                </div>
+                <div class="btn-fillform">
+                  <button type="submit" class="btn" id="btn-fillform" name="submit">Submit</button>
                 </div>
               </div>
             </form>
             <!-- Check Room Button -->
-            <div class="btn-fillform">
+            <!-- <div class="btn-fillform">
               <button class="btn" id="btn-fillform">Next</button>
-            </div>
+            </div> -->
           </div>
         </section>
       </div>
