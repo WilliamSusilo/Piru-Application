@@ -280,7 +280,11 @@ label {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
   transform: rotate(45deg);
   transition: all 0.5s ease;
 }
@@ -369,11 +373,15 @@ label {
 
 .btn::after {
   clip-path: polygon(
-    /* Top-left */ var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+    /* Top-left */ var(--border-width)
+      calc(var(--curve-size) + var(--border-width) * 0.5),
     calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
     /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
     /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
   );
   transition: clip-path 500ms;
@@ -381,12 +389,18 @@ label {
 
 .btn:where(:hover, :focus)::after {
   clip-path: polygon(
-    /* Top-left */ calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* Top-left */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
     calc(100% - var(--border-width)) var(--border-width),
     /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
-    /* bottom-right 2 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width))
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
   );
   transition: 200ms;
 }
@@ -1104,7 +1118,8 @@ header.roomlist p {
 }
 
 .list {
-  width: 100%;
+  flex: 1;
+  min-width: 22rem;
 }
 
 .list h2 {
@@ -1842,6 +1857,71 @@ p.copyright {
   width: 100%;
 }
 
+/* Ken's CSS */
+.status.approved-text {
+  border: none;
+  padding: 5px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff, #f0f0f0);
+  color: green;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.status.not-approved-text {
+  border: none;
+  padding: 5px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff, #f0f0f0);
+  color: red;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.status.not-seen-other {
+  border: none;
+  padding: 5px 20px;
+  background: linear-gradient(135deg, #e0e0e0, #ffffff, #f0f0f0);
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.yes {
+  border: none;
+  padding: 5px;
+  background: linear-gradient(135deg, #00ff00, #00b300, #4dff4d);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 3rem;
+  text-align: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.no {
+  border: none;
+  padding: 5px;
+  background: linear-gradient(135deg, #ff3b30, #b30000, #ff5e57);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 3rem;
+  text-align: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.roomdesc .form-group .approval {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  gap: 1rem;
+  text-align: center;
+}
+
 /* Responsive Website */
 
 /* Extra large devices (large laptops and desktops, 1200px and down) */
@@ -2167,10 +2247,6 @@ p.copyright {
 
   .lists {
     flex-direction: column;
-  }
-
-  .list .icon-roomlist {
-    width: 5%;
   }
 
   /* Roomdesc Section */

@@ -18,7 +18,7 @@ function add($data, $username){
     // query to insert data
     $query = "INSERT INTO borrowings
                 VALUES
-                ('', '$date', '$name', '$activity', '$time', '$room', '$participants', '$equipments', '$username')
+                ('', '$date', '$name', '$activity', '$time', '$room', '$participants', '$equipments', '$username', NULL, NULL, NULL, NULL)
                 ";
     
     mysqli_query($db, $query);
@@ -42,6 +42,14 @@ function query($query){
     
     // returning 2 dimensions array
     return $rows;
+}
+
+// DELETE
+function hapus($id){
+    global $db;
+    mysqli_query($db, "DELETE FROM borrowings WHERE BorrowID = $id");
+
+    return mysqli_affected_rows($db);
 }
 
 ?>

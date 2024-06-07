@@ -33,6 +33,7 @@ if ( isset($_POST["signin"]) ) {
       $_SESSION["login"] = true;
 
       $_SESSION["username"] = $username;
+      $_SESSION["password"] = $password;
 
       header("Location: index.php");
       exit;
@@ -110,11 +111,11 @@ if ( isset($_POST["signin"]) ) {
             <h1 class="signin-h1">Sign In</h1>
             <div class="div_form">
               <div class="input-content">
-                <input type="text" id="username" placeholder="" class="input-details" />
+                <input type="text" id="username" placeholder="" name="username" class="input-details" />
                 <label for="username" class="form_label">Username</label>
               </div>
               <div class="input-content">
-                <input type="password" id="password" placeholder="" class="input-details" />
+                <input type="password" id="password" placeholder="" name="username" class="input-details" />
                 <label for="password" class="form_label">Password</label>
               </div>
               <?php if( isset($error) ) : ?>
