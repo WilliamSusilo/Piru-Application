@@ -2,7 +2,7 @@
 
 session_start();
 
-// sdeleting session
+// deleting session
 $_SESSION = [];
 session_unset();
 session_destroy();
