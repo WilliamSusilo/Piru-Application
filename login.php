@@ -111,11 +111,11 @@ if ( isset($_POST["signin"]) ) {
             <h1 class="signin-h1">Sign In</h1>
             <div class="div_form">
               <div class="input-content">
-                <input type="text" placeholder="" id="username" name="username" class="input-details" />
+                <input type="text" id="username" placeholder="" name="username" class="input-details" />
                 <label for="username" class="form_label">Username</label>
               </div>
               <div class="input-content">
-                <input type="password" placeholder="" id="password" name="password" class="input-details" />
+                <input type="password" id="password" placeholder="" name="username" class="input-details" />
                 <label for="password" class="form_label">Password</label>
               </div>
               <?php if( isset($error) ) : ?>
