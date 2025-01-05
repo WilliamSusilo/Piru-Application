@@ -1,6 +1,6 @@
 # Piru Application  
 
-**Piru Application** is a web-based application designed to streamline the room lending system at Kwik Kian Gie School of Business Campus. Built using HTML, CSS, JavaScript, PHP, and MySQL, this application automates and manages room borrowing requests, optimizing booking processes and loan request tracking.  
+**Piru Application** is a web-based application designed to streamline the room lending system at Kwik Kian Gie School of Business Campus. Built using HTML, Vanilla CSS, Vanilla JavaScript, PHP, and MySQL, this application automates and manages room borrowing requests, optimizing booking processes and loan request tracking.  
 
 ## Features  
 
