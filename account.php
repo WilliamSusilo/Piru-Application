@@ -30,8 +30,8 @@ $account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
     <!-- Box Icon -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+    <link rel="stylesheet" href="css/style.css?v=<?= filemtime('css/style.css'); ?>">
+    </head>
   <body>
     <!-- Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -50,6 +50,13 @@ $account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
       </div>
       <a class="button-keluar">SHOW / HIDE</a>
       <ul class="nav-list side">
+        <li class="theme">
+          <a href="">
+            <i class="bx bxs-moon" id="theme"></i>
+            <span class="link_name">Theme</span>
+          </a>
+          <span class="tooltip">Theme</span>
+        </li>
         <li>
           <a href="index.php">
             <i class="bx bx-grid-alt"></i>
@@ -114,7 +121,7 @@ $account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
 
           <div class="profile">
             <img src="assets/Icon/icon-4.png" alt="Icon" class="icon-1" />
-            <h2>HIMA IC</h2>
+            <h2>HIMA/UKM</h2>
             <hr class="divider" />
           </div>
         </div>
@@ -125,8 +132,8 @@ $account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
         <!-- <hr class="divider" /> -->
         <div class="question">
           <div class="question-left">
-            <h2>Any</h2>
-            <h1>Question?</h1>
+            <h2 class="question-text-left">Any</h2>
+            <h1 class="question-text-left">Question?</h1>
           </div>
           <div class="question-right">
             <div class="question-input">
@@ -166,7 +173,30 @@ $account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
       </section>
     </div>
 
-    <!-- Javascript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      var theme = document.getElementById("theme");
+
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-theme");
+        theme.classList.remove("bxs-moon");
+        theme.classList.add("bxs-sun");
+      }
+
+      theme.onclick = function () {
+        document.body.classList.toggle("dark-theme");
+        if (document.body.classList.contains("dark-theme")) {
+          theme.classList.remove("bxs-moon");
+          theme.classList.add("bxs-sun");
+          localStorage.setItem("theme", "dark");
+        } else {
+          theme.classList.remove("bxs-sun");
+          theme.classList.add("bxs-moon");
+          localStorage.setItem("theme", "light");
+        }
+      };
+    });
+    </script>
     <script src="js/script.js"></script>
   </body>
 </html>

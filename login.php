@@ -63,7 +63,7 @@ if ( isset($_POST["signin"]) ) {
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=<?= filemtime('css/style.css'); ?>">
     <!-- SnowFall -->
     <script src="js/snowfall.min.js"></script>
   </head>
@@ -115,7 +115,7 @@ if ( isset($_POST["signin"]) ) {
                 <label for="username" class="form_label">Username</label>
               </div>
               <div class="input-content">
-                <input type="password" id="password" placeholder="" name="username" class="input-details" />
+                <input type="password" id="password" placeholder="" name="password" class="input-details" />
                 <label for="password" class="form_label">Password</label>
               </div>
               <?php if( isset($error) ) : ?>

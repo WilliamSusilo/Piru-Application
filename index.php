@@ -24,7 +24,7 @@ if (!isset($_SESSION["login"])){
     <!-- Box Icon -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=<?= filemtime('css/style.css'); ?>">
   </head>
   <body>
     <!-- Animation -->
@@ -44,6 +44,13 @@ if (!isset($_SESSION["login"])){
       </div>
       <a class="button-keluar">SHOW / HIDE</a>
       <ul class="nav-list side">
+        <li class="theme">
+          <a href="">
+            <i class="bx bxs-moon" id="theme"></i>
+            <span class="link_name">Theme</span>
+          </a>
+          <span class="tooltip">Theme</span>
+        </li>
         <li>
           <a href="index.php">
             <i class="bx bx-grid-alt"></i>
@@ -109,8 +116,8 @@ if (!isset($_SESSION["login"])){
       <section class="footer-section">
         <div class="question">
           <div class="question-left">
-            <h2>Any</h2>
-            <h1>Question?</h1>
+            <h2 class="question-text-left">Any</h2>
+            <h1 class="question-text-left">Question?</h1>
           </div>
           <div class="question-right">
             <div class="question-input">
@@ -150,6 +157,30 @@ if (!isset($_SESSION["login"])){
       </section>
     </div>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      var theme = document.getElementById("theme");
+
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-theme");
+        theme.classList.remove("bxs-moon");
+        theme.classList.add("bxs-sun");
+      }
+
+      theme.onclick = function () {
+        document.body.classList.toggle("dark-theme");
+        if (document.body.classList.contains("dark-theme")) {
+          theme.classList.remove("bxs-moon");
+          theme.classList.add("bxs-sun");
+          localStorage.setItem("theme", "dark");
+        } else {
+          theme.classList.remove("bxs-sun");
+          theme.classList.add("bxs-moon");
+          localStorage.setItem("theme", "light");
+        }
+      };
+    });
+    </script>
     <script src="js/script.js"></script>
   </body>
 </html>

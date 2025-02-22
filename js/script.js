@@ -198,4 +198,27 @@ window.onload = function () {
   //     window.location.href = "roomdesc.php";
   //   };
   // }
+
+  // Theme Toggle (Dark / Light Mode)
+  const theme = document.getElementById("theme");
+
+  if (theme) {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-theme");
+      theme.classList.replace("bxs-moon", "bxs-sun");
+    }
+
+    theme.parentElement.addEventListener("click", function (event) {
+      event.preventDefault(); // Mencegah perilaku default jika elemen parent adalah <a>
+      document.body.classList.toggle("dark-theme");
+
+      if (document.body.classList.contains("dark-theme")) {
+        theme.classList.replace("bxs-moon", "bxs-sun");
+        localStorage.setItem("theme", "dark");
+      } else {
+        theme.classList.replace("bxs-sun", "bxs-moon");
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
 };

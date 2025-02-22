@@ -30,7 +30,7 @@ $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
     <!-- Box Icon -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=<?= filemtime('css/style.css'); ?>">
   </head>
   <html>
     <body>
@@ -51,6 +51,13 @@ $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
         </div>
         <a class="button-keluar">SHOW / HIDE</a>
         <ul class="nav-list side">
+          <li class="theme">
+            <a href="">
+              <i class="bx bxs-moon" id="theme"></i>
+              <span class="link_name">Theme</span>
+            </a>
+            <span class="tooltip">Theme</span>
+          </li>
           <li>
             <a href="index.php">
               <i class="bx bx-grid-alt"></i>
@@ -215,6 +222,30 @@ $borrowingList = query("SELECT * FROM borrowings WHERE BorrowID = '$id'")[0];
       </div>
 
       <!-- Javascript -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        var theme = document.getElementById("theme");
+
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-theme");
+          theme.classList.remove("bxs-moon");
+          theme.classList.add("bxs-sun");
+        }
+
+        theme.onclick = function () {
+          document.body.classList.toggle("dark-theme");
+          if (document.body.classList.contains("dark-theme")) {
+            theme.classList.remove("bxs-moon");
+            theme.classList.add("bxs-sun");
+            localStorage.setItem("theme", "dark");
+          } else {
+            theme.classList.remove("bxs-sun");
+            theme.classList.add("bxs-moon");
+            localStorage.setItem("theme", "light");
+          }
+        };
+      });
+      </script>
       <script src="js/script.js"></script>
     </body>
   </html>
