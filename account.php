@@ -175,27 +175,27 @@ $account = query("SELECT * FROM accounts WHERE username = '$username'")[0];
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-      var theme = document.getElementById("theme");
+        var theme = document.getElementById("theme");
 
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-theme");
-        theme.classList.remove("bxs-moon");
-        theme.classList.add("bxs-sun");
-      }
-
-      theme.onclick = function () {
-        document.body.classList.toggle("dark-theme");
-        if (document.body.classList.contains("dark-theme")) {
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-theme");
           theme.classList.remove("bxs-moon");
           theme.classList.add("bxs-sun");
-          localStorage.setItem("theme", "dark");
-        } else {
-          theme.classList.remove("bxs-sun");
-          theme.classList.add("bxs-moon");
-          localStorage.setItem("theme", "light");
         }
-      };
-    });
+
+        theme.onclick = function () {
+          document.body.classList.toggle("dark-theme");
+          if (document.body.classList.contains("dark-theme")) {
+            theme.classList.remove("bxs-moon");
+            theme.classList.add("bxs-sun");
+            localStorage.setItem("theme", "dark");
+          } else {
+            theme.classList.remove("bxs-sun");
+            theme.classList.add("bxs-moon");
+            localStorage.setItem("theme", "light");
+          }
+        };
+      });
     </script>
     <script src="js/script.js"></script>
   </body>
